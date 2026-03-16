@@ -19,8 +19,6 @@ import { defaultCards } from "../../components/details/DefaultCard";
 import { slugify } from "../../../utils/slugify";
 import { instance } from "../../../utils/api";
 import aboutImg1 from "../../../assets/studio-background-concept-abstract-empty-light-gradient-purple-studio-room-background-product.jpg";
-import { Button } from "@mui/material";
-
 const slideIn = keyframes`from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); }`;
 const MainBox = styled(Box)(({ theme }) => ({
   padding: "60px 0",
@@ -193,7 +191,7 @@ export default function BlogDetailClient() {
   const startIndex = (page - 1) * itemsPerPage;
   const paginatedData = processedBlogs.slice(
     startIndex,
-    startIndex + itemsPerPage
+    startIndex + itemsPerPage,
   );
   const pageCount = Math.ceil(processedBlogs.length / itemsPerPage);
 
@@ -240,165 +238,193 @@ export default function BlogDetailClient() {
   }
 
   return (
-    <MainBox>
-      <Container maxWidth="xl">
-        <Box sx={{ padding: { xs: "24px", md: "48px" } }}>
-          <Grid container spacing={4}>
-            <Grid item xs={12}>
+    <>
+      <Box sx={{ position: "relative", width: "100%" }}>
+        <Image
+          src={aboutImg1}
+          alt="banner"
+          style={{
+            width: "100%",
+            height: "150px",
+            objectFit: "cover",
+          }}
+        />
 
-              <StyledCard>
-                <Grid item xs={12} md={8}>
-                  <BlogListBox>
-                    {paginatedData.map((blog, index) => (
-                      <BlogItem
-                        key={blog.id || index}
-                        selected={selectedBlog?.id === blog.id}
-                        onClick={() => handleSelectBlog(blog)}
+        <Typography
+          variant="h4"
+          sx={{
+            position: "absolute",
+            top: "50%",
+            left: "40px",
+            transform: "translateY(-50%)",
+            color: "white",
+            fontWeight: "bold",
+          }}
+        >
+          BLOGS
+        </Typography>
+      </Box>
+
+      <MainBox>
+        <Container maxWidth="xl">
+          <Box sx={{ padding: { xs: "24px", md: "48px" } }}>
+            <Grid container spacing={4}>
+              <Grid item xs={12}>
+                <StyledCard>
+                  <Grid item xs={12} md={8}>
+                    <BlogListBox>
+                      {paginatedData.map((blog, index) => (
+                        <BlogItem
+                          key={blog.id || index}
+                          selected={selectedBlog?.id === blog.id}
+                          onClick={() => handleSelectBlog(blog)}
+                        >
+                          <Typography variant="body1" sx={{ fontWeight: 600 }}>
+                            {startIndex + index + 1}. {blog.title}
+                          </Typography>
+                        </BlogItem>
+                      ))}
+                    </BlogListBox>
+                    {pageCount > 1 && (
+                      <Box
+                        sx={{ display: "flex", justifyContent: "center", p: 2 }}
                       >
-                        <Typography variant="body1" sx={{ fontWeight: 600 }}>
-                          {startIndex + index + 1}. {blog.title}
-                        </Typography>
-                      </BlogItem>
-                    ))}
-                  </BlogListBox>
-                  {pageCount > 1 && (
-                    <Box
-                      sx={{ display: "flex", justifyContent: "center", p: 2 }}
-                    >
-                      <Pagination
-                        count={pageCount}
-                        page={page}
-                        onChange={handlePageChange}
-                        color="primary"
+                        <Pagination
+                          count={pageCount}
+                          page={page}
+                          onChange={handlePageChange}
+                          color="primary"
+                        />
+                      </Box>
+                    )}
+                  </Grid>
+                  <Grid
+                    item
+                    xs={12}
+                    md={4}
+                    sx={{ display: "flex", justifyContent: "center" }}
+                  >
+                    {selectedBlog && (
+                      <StyledImage
+                        key={selectedBlog.id}
+                        src={selectedBlog.image?.src || aboutImg1.src}
+                        alt={selectedBlog.title || "Blog Image"}
+                        width={450}
+                        height={300}
+                        priority
                       />
-                    </Box>
-                  )}
-                </Grid>
-                <Grid
-                  item
-                  xs={12}
-                  md={4}
-                  sx={{ display: "flex", justifyContent: "center" }}
-                >
-                  {selectedBlog && (
-                    <StyledImage
-                      key={selectedBlog.id}
-                      src={selectedBlog.image?.src || aboutImg1.src}
-                      alt={selectedBlog.title || "Blog Image"}
-                      width={450}
-                      height={300}
-                      priority
-                    />
-                  )}
-                </Grid>
+                    )}
+                  </Grid>
+                </StyledCard>
 
-              </StyledCard>
-
-
-
-
-              <Box sx={{ display: 'flex', justifyContent: "center", alignItems: "center" }}>
-
-                <Link
-                  href="https://t.me/yourtelegramlink"
-                  style={{
-                    backgroundColor: "red",
-                    width: "313px",
-                    height: "55px",
-                    borderRadius: "37px",
-                    color: "white",
-                    border: "1px solid red",
-                    textAlign: "center",
+                <Box
+                  sx={{
                     display: "flex",
                     justifyContent: "center",
                     alignItems: "center",
-                    textDecoration: "none"
                   }}
                 >
-                  Join Our Telegram Community
-                </Link>
-              </Box>
-            </Grid>
-            {selectedBlog && (
-              <Grid item xs={12}>
-                <ContentBox>
-                  <Typography
-                    variant="h4"
-                    sx={{ fontWeight: 700, color: "#49326b", mb: 2 }}
-                  >
-                    {selectedBlog.title}
-                  </Typography>
-                  <Typography
-                    variant="body1"
-                    sx={{
-                      color: "#616161",
-                      mb: 4,
-                      lineHeight: 1.7,
-                      "& a": { color: "blue" },
+                  <Link
+                    href="https://t.me/yourtelegramlink"
+                    style={{
+                      backgroundColor: "red",
+                      width: "313px",
+                      height: "55px",
+                      borderRadius: "37px",
+                      color: "white",
+                      border: "1px solid red",
+                      textAlign: "center",
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
+                      textDecoration: "none",
                     }}
                   >
-                    {selectedBlog.metaDescription}
-                  </Typography>
-                  <Divider sx={{ mb: 4 }} />
-                  <Typography
-                    component="div"
-                    dangerouslySetInnerHTML={{ __html: selectedBlog.content }}
-                    sx={{
-                      color: "#49326b",
-                      lineHeight: 1.8,
-                      "& a": { color: "blue" },
-                    }}
-                  />
-                  <AuthorBox image={aboutImg1}>
-                    <Box>
-                      <Typography
-                        sx={{
-                          color: "#e4d4fa",
-                          fontSize: { xs: "0.9rem", sm: "1rem" },
-                          "& a": {
-                            color: "red",
-                            textDecoration: "none",
-                          },
-                        }}
-                        component="div"
-                        dangerouslySetInnerHTML={{
-                          __html: `Written by <strong>${selectedBlog.author}</strong>`,
-                        }}
-                      />
-                      <Typography variant="body2">
-                        {selectedBlog.company}
-                      </Typography>
-                    </Box>
-                    <Box>
-                      <button
-                        onClick={() => {
-                          const url = window.location.href;
-                          navigator.clipboard.writeText(url);
-                          alert("Blog URL copied to clipboard!");
-                        }}
-                        style={{
-                          cursor: "pointer",
-                          padding: "10px 20px",
-                          borderRadius: "8px",
-                          border: "1px solid #49326b",
-                          background: "#e4d4fa",
-                          color: "#49326b",
-                          fontWeight: "bold",
-                          display: "flex",
-                          alignItems: "center",
-                          gap: "8px",
-                        }}
-                      >
-                        <ShareIcon /> Share Post
-                      </button>
-                    </Box>
-                  </AuthorBox>
-                </ContentBox>
+                    Join Our Telegram Community
+                  </Link>
+                </Box>
               </Grid>
-            )}
-          </Grid>
-        </Box>
-      </Container>
-    </MainBox>
+              {selectedBlog && (
+                <Grid item xs={12}>
+                  <ContentBox>
+                    <Typography
+                      variant="h4"
+                      sx={{ fontWeight: 700, color: "#49326b", mb: 2 }}
+                    >
+                      {selectedBlog.title}
+                    </Typography>
+                    <Typography
+                      variant="body1"
+                      sx={{
+                        color: "#616161",
+                        mb: 4,
+                        lineHeight: 1.7,
+                        "& a": { color: "blue" },
+                      }}
+                    >
+                      {selectedBlog.metaDescription}
+                    </Typography>
+                    <Divider sx={{ mb: 4 }} />
+                    <Typography
+                      component="div"
+                      dangerouslySetInnerHTML={{ __html: selectedBlog.content }}
+                      sx={{
+                        color: "#49326b",
+                        lineHeight: 1.8,
+                        "& a": { color: "blue" },
+                      }}
+                    />
+                    <AuthorBox image={aboutImg1}>
+                      <Box>
+                        <Typography
+                          sx={{
+                            color: "#e4d4fa",
+                            fontSize: { xs: "0.9rem", sm: "1rem" },
+                            "& a": {
+                              color: "red",
+                              textDecoration: "none",
+                            },
+                          }}
+                          component="div"
+                          dangerouslySetInnerHTML={{
+                            __html: `Written by <strong>${selectedBlog.author}</strong>`,
+                          }}
+                        />
+                        <Typography variant="body2">
+                          {selectedBlog.company}
+                        </Typography>
+                      </Box>
+                      <Box>
+                        <button
+                          onClick={() => {
+                            const url = window.location.href;
+                            navigator.clipboard.writeText(url);
+                            alert("Blog URL copied to clipboard!");
+                          }}
+                          style={{
+                            cursor: "pointer",
+                            padding: "10px 20px",
+                            borderRadius: "8px",
+                            border: "1px solid #49326b",
+                            background: "#e4d4fa",
+                            color: "#49326b",
+                            fontWeight: "bold",
+                            display: "flex",
+                            alignItems: "center",
+                            gap: "8px",
+                          }}
+                        >
+                          <ShareIcon /> Share Post
+                        </button>
+                      </Box>
+                    </AuthorBox>
+                  </ContentBox>
+                </Grid>
+              )}
+            </Grid>
+          </Box>
+        </Container>
+      </MainBox>
+    </>
   );
 }

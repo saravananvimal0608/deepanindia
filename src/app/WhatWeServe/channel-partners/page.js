@@ -85,7 +85,6 @@ const ChannelPartner = () => {
           }}
         >
           CHANNEL PARTNERS
-          Channel Partners
         </Typography>
       </Box>
 

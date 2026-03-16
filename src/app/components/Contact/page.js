@@ -347,7 +347,7 @@ export default function Contact() {
                     required
                   >
                     <MenuItem value="Training">Training</MenuItem>
-                    <MenuItem value="Coding Training"> Coding Training</MenuItem>
+                    <MenuItem value="Coding"> Coding</MenuItem>
                     <MenuItem value="Algo Trading">Algo Trading</MenuItem>
                     <MenuItem value="Partnership">Partnership</MenuItem>
                     <MenuItem value="Others">Others</MenuItem>

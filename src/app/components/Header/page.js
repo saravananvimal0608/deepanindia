@@ -297,7 +297,7 @@ export default function Header() {
                       Contact
                     </Button>
                   </li>
-                  {/* What We Serve */}
+                  {/* who We Serve */}
                   <li style={{ marginTop: "10px" }}>
                     <Button
                       fullWidth
@@ -313,7 +313,7 @@ export default function Header() {
                       onClick={() => handleMenuOpen("WhatWeServe")}
                       endIcon={<FaAngleDown />}
                     >
-                      What We Serve
+                      Who We Serve
                     </Button>
                     <Collapse in={openDropdown === "WhatWeServe"} timeout={300}>
                       <Box
@@ -713,7 +713,7 @@ export default function Header() {
                     onMouseLeave={handleMouseLeave}
                     style={{ display: "flex", letterSpacing: "1px" }}
                   >
-                    What We Serve <FaAngleDown style={{ marginTop: "5px" }} />
+                     Who We Serve <FaAngleDown style={{ marginTop: "5px" }} />
                     <div
                       className={`${styles.dropdown} ${visibleDropdown === 0 ? styles.dropdownShow : ""
                         }`}

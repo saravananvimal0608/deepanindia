@@ -7,15 +7,15 @@ import Typography from "@mui/material/Typography";
 import { styled } from "@mui/system";
 import { keyframes } from "@emotion/react";
 import Image from "next/image";
-import insta from '../../../assets/icons/3.png'
-import pinterest from '../../../assets/icons/6.png'
-import fb from '../../../assets/icons/5.png'
-import yt from '../../../assets/icons/7.png'
-import tele from '../../../assets/icons/8.png'
-import linkedIn from '../../../assets/icons/4.png'
-import call from '../../../assets/icons/1.png'
-import mail from '../../../assets/icons/2.png'
-import map from '../../../assets/icons/9.png'
+import insta from "../../../assets/icons/3.png";
+import pinterest from "../../../assets/icons/6.png";
+import fb from "../../../assets/icons/5.png";
+import yt from "../../../assets/icons/7.png";
+import tele from "../../../assets/icons/8.png";
+import linkedIn from "../../../assets/icons/4.png";
+import call from "../../../assets/icons/1.png";
+import mail from "../../../assets/icons/2.png";
+import map from "../../../assets/icons/9.png";
 import aboutImg1 from "../../../assets/studio-background-concept-abstract-empty-light-gradient-purple-studio-room-background-product.jpg";
 import Link from "next/link";
 import Contact from "../../components/Contact/page";
@@ -66,24 +66,34 @@ const ContactPage = () => {
             fontWeight: "bold",
           }}
         >
-          Let’s Connect
+          LET'S CONNECT
         </Typography>
       </Box>
 
       <SectionWrapper>
         <Container maxWidth="lg" sx={{ pb: 5 }}>
           {/* SECTION 1 */}
-          <Grid container spacing={4} >
-
+          <Grid container spacing={4}>
             <Grid size={{ xs: 12, md: 6 }}>
-
               <Box>
                 <Typography sx={{ color: "#49326b" }}>
-                  Have questions about algo trading strategies, quant services, or partnership opportunities? Our team at Deepan India is here to assist you. Reach out to our Quant Desk in India for enquiries related to algorithmic trading, strategy deployment, or collaboration on Financial Literacy in Colleges.
+                  Have questions about algo trading strategies, quant services,
+                  or partnership opportunities? Our team at Deepan India is here
+                  to assist you. Reach out to our Quant Desk in India for
+                  enquiries related to algorithmic trading, strategy deployment,
+                  or collaboration on Financial Literacy in Colleges.
                 </Typography>
               </Box>
 
-              <Box sx={{ display: 'flex', justifyContent: "center", alignItems: "center", mt: 3, flexDirection: "column" }}>
+              <Box
+                sx={{
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  mt: 3,
+                  flexDirection: "column",
+                }}
+              >
                 <Link
                   href="https://t.me/yourtelegramlink"
                   style={{
@@ -123,13 +133,9 @@ const ContactPage = () => {
                     />
                   </Link>
                   <Link href="https://www.facebook.com/Deepanindiafin ">
-                    <Image
-                      src={fb}
-                      alt="fb-icon"
-                      style={{ width: "30px" }}
-                    />
+                    <Image src={fb} alt="fb-icon" style={{ width: "30px" }} />
                   </Link>
-                  <Link href="https://wa.me/919999999999">
+                  <Link href="https://www.youtube.com/@deepanindiafinancialservices">
                     <Image
                       src={yt}
                       alt="whatsapp-icon"
@@ -150,13 +156,8 @@ const ContactPage = () => {
                       style={{ width: "30px" }}
                     />
                   </Link>
-
                 </Box>
               </Box>
-
-
-
-
             </Grid>
             {/* TEXT */}
             <Grid item xs={12} md={6}>
@@ -165,12 +166,18 @@ const ContactPage = () => {
                   border: "10px solid #e4d4fa",
                   borderRadius: "30px",
                   padding: "20px",
-                  height: "100%"
+                  height: "100%",
                 }}
               >
-
                 {/* Office */}
-                <Box sx={{ display: "flex", gap: "15px", alignItems: "flex-start", mb: 3 }}>
+                <Box
+                  sx={{
+                    display: "flex",
+                    gap: "15px",
+                    alignItems: "flex-start",
+                    mb: 3,
+                  }}
+                >
                   <Image src={map} alt="map-icon" width={40} height={40} />
 
                   <Typography sx={{ color: "#49326b", lineHeight: 1.6 }}>
@@ -182,7 +189,14 @@ const ContactPage = () => {
                 </Box>
 
                 {/* Phone */}
-                <Box sx={{ display: "flex", gap: "15px", alignItems: "center", mb: 3 }}>
+                <Box
+                  sx={{
+                    display: "flex",
+                    gap: "15px",
+                    alignItems: "center",
+                    mb: 3,
+                  }}
+                >
                   <Image src={call} alt="call-icon" width={40} height={40} />
 
                   <Typography sx={{ color: "#49326b" }}>
@@ -192,7 +206,9 @@ const ContactPage = () => {
                 </Box>
 
                 {/* Email */}
-                <Box sx={{ display: "flex", gap: "15px", alignItems: "center" }}>
+                <Box
+                  sx={{ display: "flex", gap: "15px", alignItems: "center" }}
+                >
                   <Image src={mail} alt="mail-icon" width={40} height={40} />
 
                   <Typography sx={{ color: "#49326b" }}>
@@ -200,17 +216,12 @@ const ContactPage = () => {
                     enquiry@deepanindia.com
                   </Typography>
                 </Box>
-
               </Box>
             </Grid>
-
-
-
           </Grid>
-
         </Container>
         <Contact />
-      </SectionWrapper >
+      </SectionWrapper>
     </>
   );
 };

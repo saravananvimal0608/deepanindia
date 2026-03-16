@@ -101,47 +101,59 @@ const Partner = () => {
           }}
         >
           {/* Left Column - Text Content */}
-          <Box sx={{ border: "5px solid whitesmoke", p: 2, backgroundColor: "white", borderRadius: "22px" }}>
+          <Box
+            sx={{
+              border: "5px solid whitesmoke",
+              p: 2,
+              backgroundColor: "white",
+              borderRadius: "22px",
+            }}
+          >
             <Typography variant="h6" sx={{ color: "#49326B" }}>
-              <b>   We welcome partnerships with:</b>
+              <b> We welcome partnerships with:</b>
             </Typography>
 
             <Typography sx={{ color: "#49326B" }}>
               <RadioButtonCheckedIcon
                 style={{ paddingRight: "5px", fontSize: "25px" }}
-              /> Insurance Agents
+              />{" "}
+              Insurance Agents
             </Typography>
 
             <Typography sx={{ color: "#49326B" }}>
               <RadioButtonCheckedIcon
                 style={{ paddingRight: "5px", fontSize: "25px" }}
-              /> Mutual Fund Advisors
+              />{" "}
+              Mutual Fund Advisors
             </Typography>
 
             <Typography sx={{ color: "#49326B" }}>
               <RadioButtonCheckedIcon
                 style={{ paddingRight: "5px", fontSize: "25px" }}
-              /> Real Estate Professionals
+              />{" "}
+              Real Estate Professionals
             </Typography>
 
             <Typography sx={{ color: "#49326B" }}>
               <RadioButtonCheckedIcon
                 style={{ paddingRight: "5px", fontSize: "25px" }}
-              /> Sub-Brokers
+              />{" "}
+              Sub-Brokers
             </Typography>
 
             <Typography sx={{ color: "#49326B" }}>
               <RadioButtonCheckedIcon
                 style={{ paddingRight: "5px", fontSize: "25px" }}
-              /> Financial Consultants
+              />{" "}
+              Financial Consultants
             </Typography>
 
             <Typography sx={{ color: "#49326B" }}>
               <RadioButtonCheckedIcon
                 style={{ paddingRight: "5px", fontSize: "25px" }}
-              /> Anyone with a strong network
+              />{" "}
+              Anyone with a strong network
             </Typography>
-
           </Box>
 
           {/* Right Column - Image */}
@@ -177,8 +189,7 @@ const Partner = () => {
           </style>
         </Box>
 
-
-          <Typography
+        <Typography
           sx={{
             textAlign: "center",
             color: "#f9f3fe",
@@ -187,12 +198,19 @@ const Partner = () => {
             fontWeight: 600,
           }}
         >
-        If you are passionate about helping people grow their wealth while creating an additional income stream, partner with Deepan India and be part of a growing quant and algorithmic trading ecosystem.
-         
+          If you are passionate about helping people grow their wealth while
+          creating an additional income stream, partner with Deepan India and be
+          part of a growing quant and algorithmic trading ecosystem.
         </Typography>
-  
 
-        <Box sx={{ display: 'flex', justifyContent: "center", alignItems: "center", mt: 2 }}>
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            mt: 2,
+          }}
+        >
           <Link
             href=""
             style={{
@@ -206,10 +224,10 @@ const Partner = () => {
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
-              textDecoration: "none"
+              textDecoration: "none",
             }}
           >
-            Enquiry form 
+            Start your journey with us
           </Link>
         </Box>
 

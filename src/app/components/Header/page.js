@@ -1,0 +1,933 @@
+"use client";
+
+// STEP 1: Import necessary dependencies
+import { useEffect, useState, useRef } from "react";
+import { useRouter, usePathname } from "next/navigation";
+import Link from "next/link";
+import Image from "next/image";
+import { Container, Nav, Navbar } from "react-bootstrap";
+import { FaAngleDown } from "react-icons/fa";
+import Divider from "@mui/material/Divider";
+import styles from "./Header.module.css";
+import Deepalogo from "@/assets/EditedLogo-removebg-preview.png";
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import Collapse from "@mui/material/Collapse";
+import { useScroll } from "@/context/ScrollContext";
+
+export default function Header() {
+  const router = useRouter();
+  const pathname = usePathname();
+  const [isOpen, setIsOpen] = useState(false);
+  const [visibleDropdown, setVisibleDropdown] = useState(null);
+  const [isMobile, setIsMobile] = useState(false);
+  const [isHydrated, setIsHydrated] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState(null);
+  const { setTargetId } = useScroll();
+
+  const navContainerRef = useRef(null);
+  let hoverTimeout;
+
+  useEffect(() => {
+    setIsHydrated(true);
+    const checkScreen = () => setIsMobile(window.innerWidth <= 768);
+    checkScreen();
+    window.addEventListener("resize", checkScreen);
+    return () => window.removeEventListener("resize", checkScreen);
+  }, []);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth > 920) {
+        setIsOpen(false);
+      }
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        navContainerRef.current &&
+        !navContainerRef.current.contains(event.target)
+      ) {
+        setVisibleDropdown(null);
+      }
+    };
+    if (visibleDropdown !== null) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [visibleDropdown]);
+
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [isOpen]); // This effect depends only on the 'isOpen' state.
+
+  const handleMouseEnter = (index) => {
+    if (window.innerWidth > 920) {
+      clearTimeout(hoverTimeout);
+      setVisibleDropdown(index);
+    }
+  };
+
+  const handleMouseLeave = () => {
+    if (window.innerWidth > 920) {
+      hoverTimeout = setTimeout(() => {
+        setVisibleDropdown(null);
+      }, 300);
+    }
+  };
+
+  const handleDropdownToggle = (index) => {
+    setVisibleDropdown((prev) => (prev === index ? null : index));
+  };
+
+  const handleNavigation = (href) => {
+    setIsOpen(false);
+    setVisibleDropdown(null);
+    handleMouseLeave();
+    setOpenDropdown(null);
+
+    if (href.startsWith("/#")) {
+      const anchorId = href.substring(2);
+      if (pathname === "/") {
+        const element = document.querySelector(`#${anchorId}`);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
+      } else {
+        setTargetId(anchorId);
+        // Corrected this line from your code. It should just navigate to the root.
+        // The homepage component will handle the scrolling.
+        router.push("/");
+      }
+    } else if (href.startsWith("#")) {
+      const element = document.querySelector(href);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    } else {
+      router.push(href);
+    }
+  };
+
+  const handleMenuOpen = (menu) => {
+    if (isMobile) {
+      setOpenDropdown((prev) => (prev === menu ? null : menu));
+    }
+  };
+
+  if (!isHydrated) {
+    return null;
+  }
+
+  return (
+    <header className={styles.headerContainer}>
+      <div className={styles.topHeader}>
+        <Navbar expand="lg" className={styles.myTopHeader}>
+          <Container
+            style={{
+              display: "flex",
+              justifyContent: 'flex-end',
+              height: "60px",
+              alignItems: "center",
+            }}
+          >
+            <div className={styles.topMenuItem}>
+              <Navbar.Collapse id="basic-navbar-nav">
+                <Nav className="me d-flex align-items-center">
+                  <Link
+                    style={{ marginLeft: "20px" }}
+                    href="/#ourstory"
+                    className={styles.styledNavLink}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      handleNavigation("/#ourstory");
+                    }}
+                  >
+                    Home
+                  </Link>
+                  <Link
+                    style={{ marginLeft: "20px" }}
+                    href="/About/about"
+                    className={styles.styledNavLink}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      handleNavigation("/About/about");
+                    }}
+                  >
+                    About Us
+                  </Link>
+
+                  <Nav.Link
+                    style={{ marginLeft: "20px" }}
+                    onClick={() => window.location.href = "https://trade.deepanindia.com"}
+                    className={styles.algoTradingLink}
+                  >
+                    Algo Trading
+                  </Nav.Link>
+                  <Link
+                    style={{ marginLeft: "20px" }}
+                    href="/#partner"
+                    className={styles.styledNavLink}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      handleNavigation("/#partner");
+                    }}
+                  >
+                    Partner with us
+                  </Link>
+                  <Nav.Link
+                    style={{ marginLeft: "20px" }}
+                    onClick={() => handleNavigation("/contact/contact")}
+                    className={styles.btnTopHeader}
+                  >
+                    Contact
+                  </Nav.Link>
+                </Nav>
+              </Navbar.Collapse>
+            </div>
+          </Container>
+        </Navbar>
+      </div>
+      <Divider className={styles.styledDivider} />
+      <div className={styles.headerBottom}>
+        <Container>
+          <div className={styles.myContainer}>
+            <div
+              className={styles.logoContainer}
+              onClick={() => handleNavigation("/")}
+            >
+              <Image
+                src={Deepalogo}
+                alt="Logo"
+                style={{
+                  width: "auto",
+                  height: "100px",
+                  cursor: "pointer",
+                }}
+              />
+            </div>
+            <div
+              className={styles.hamburger}
+              onClick={() => setIsOpen(!isOpen)}
+            >
+              <div
+                className={
+                  isOpen ? styles.hamburgerLine1Open : styles.hamburgerLine
+                }
+              ></div>
+              <div
+                className={
+                  isOpen ? styles.hamburgerLine2Open : styles.hamburgerLine
+                }
+              ></div>
+              <div
+                className={
+                  isOpen ? styles.hamburgerLine3Open : styles.hamburgerLine
+                }
+              ></div>
+            </div>
+
+            {/* UNIFIED NAVIGATION */}
+            <nav
+              className={`${styles.navBtn} ${isOpen ? styles.navBtnOpen : ""}`}
+            >
+              {isMobile && isOpen ? (
+                // Mobile view with Collapse Dropdowns
+                <ul
+                  style={{
+                    paddingLeft: "0",
+                    margin: "0",
+                    listStyle: "none",
+                    width: "100%",
+                  }}
+                >
+                  {/* Home */}
+                  <li style={{ marginTop: "10px" }}>
+                    <Button
+                      fullWidth
+                      sx={{
+                        color: "#49326b",
+                        textTransform: "none",
+                        fontWeight: "bold",
+                      }}
+                      onClick={() => handleNavigation("/#ourstory")}
+                    >
+                      Home
+                    </Button>
+                  </li>
+
+                  {/* Partner With Us */}
+                  <li style={{ marginTop: "10px" }}>
+                    <Button
+                      fullWidth
+                      sx={{
+                        color: "#49326b",
+                        textTransform: "none",
+                        fontWeight: "bold",
+                      }}
+                      onClick={() => handleNavigation("/#partner")}
+                    >
+                      Partner With Us
+                    </Button>
+                  </li>
+                  <li style={{ marginTop: "10px" }}>
+                    <Button
+                      fullWidth
+                      sx={{
+                        color: "#49326b",
+                        textTransform: "none",
+                        fontWeight: "bold",
+                      }}
+                      onClick={() => handleNavigation("/#contact")}
+                    >
+                      Contact
+                    </Button>
+                  </li>
+                  {/* What We Serve */}
+                  <li style={{ marginTop: "10px" }}>
+                    <Button
+                      fullWidth
+                      sx={{
+                        color: "#49326b",
+                        textTransform: "none",
+                        fontWeight: "bold",
+                        backgroundColor: "transparent",
+                        padding: "10px",
+                        borderRadius: "10px",
+                        display: "flex",
+                      }}
+                      onClick={() => handleMenuOpen("WhatWeServe")}
+                      endIcon={<FaAngleDown />}
+                    >
+                      What We Serve
+                    </Button>
+                    <Collapse in={openDropdown === "WhatWeServe"} timeout={300}>
+                      <Box
+                        sx={{
+                          width: "100vw",
+                          maxWidth: "100%",
+                          maxHeight: "70vh",
+                          overflowY: "auto",
+                          backgroundColor: "#fff",
+                          color: "#49326b",
+                          boxShadow: "0 4px 20px rgba(0,0,0,0.2)",
+                          borderRadius: "0",
+                          marginTop: "0.5rem",
+                          padding: "0",
+                          textAlign: "center",
+                        }}
+                      >
+                        <Box
+                          component="li"
+                          onClick={() => {
+                            handleNavigation(
+                              "/WhatWeServe/retail-investors"
+                            );
+                          }}
+                          sx={{
+                            color: "#49326b",
+                            padding: "12px 20px",
+                            fontSize: "16px",
+                            cursor: "pointer",
+                            "&:hover": { backgroundColor: "#f5f5f5" },
+                          }}
+                        >
+                          Retail Investors
+                        </Box>
+                        <Box
+                          component="li"
+                          onClick={() => {
+                            handleNavigation(
+                              "/WhatWeServe/high-networth-individuals"
+                            );
+                          }}
+                          sx={{
+                            color: "#49326b",
+                            padding: "12px 20px",
+                            fontSize: "16px",
+                            cursor: "pointer",
+                            "&:hover": { backgroundColor: "#f5f5f5" },
+                          }}
+                        >
+                          High Net Worth Individuals
+                        </Box>
+                        <Box
+                          component="li"
+                          onClick={() => {
+                            handleNavigation("/WhatWeServe/channel-partners");
+                          }}
+                          sx={{
+                            color: "#49326b",
+                            padding: "12px 20px",
+                            fontSize: "16px",
+                            cursor: "pointer",
+                            "&:hover": { backgroundColor: "#f5f5f5" },
+                          }}
+                        >
+                          Channel Partners
+                        </Box>
+                        <Box
+                          component="li"
+                          onClick={() => {
+                            handleNavigation(
+                              "/WhatWeServe/aspiring-quant-traders"
+                            );
+                          }}
+                          sx={{
+                            color: "#49326b",
+                            padding: "12px 20px",
+                            fontSize: "16px",
+                            cursor: "pointer",
+                            "&:hover": { backgroundColor: "#f5f5f5" },
+                          }}
+                        >
+                          Aspiring Quant Traders
+                        </Box>
+                      </Box>
+                    </Collapse>
+                  </li>
+                  {/* What We Do */}
+                  <li style={{ marginTop: "10px" }}>
+                    <Button
+                      fullWidth
+                      sx={{
+                        color: "#49326b",
+                        textTransform: "none",
+                        fontWeight: "bold",
+                        backgroundColor: "transparent",
+                        padding: "10px",
+                        borderRadius: "10px",
+                        display: "flex",
+                      }}
+                      onClick={() => handleMenuOpen("WhatWeDo")}
+                      endIcon={<FaAngleDown />}
+                    >
+                      What We Do
+                    </Button>
+                    <Collapse in={openDropdown === "WhatWeDo"} timeout={300}>
+                      <Box
+                        sx={{
+                          width: "100vw",
+                          maxWidth: "100%",
+                          maxHeight: "70vh",
+                          overflowY: "auto",
+                          backgroundColor: "#fff",
+                          color: "#49326b",
+                          boxShadow: "0 4px 20px rgba(0,0,0,0.2)",
+                          borderRadius: "0",
+                          marginTop: "0.5rem",
+                          padding: "0",
+                          textAlign: "center",
+                        }}
+                      >
+                        <Box
+                          component="li"
+                          onClick={() => {
+                            handleNavigation("/what-we-do/algorithmic-trading");
+                          }}
+                          sx={{
+                            color: "#49326b",
+                            padding: "12px 20px",
+                            fontSize: "16px",
+                            cursor: "pointer",
+                            "&:hover": { backgroundColor: "#f5f5f5" },
+                          }}
+                        >
+                          Algorithmic Trading
+                        </Box>
+                        <Box
+                          component="li"
+                          onClick={() => {
+                            handleNavigation(
+                              "/what-we-do/quantitative-strategy-development"
+                            );
+                          }}
+                          sx={{
+                            color: "#49326b",
+                            padding: "12px 20px",
+                            fontSize: "16px",
+                            cursor: "pointer",
+                            "&:hover": { backgroundColor: "#f5f5f5" },
+                          }}
+                        >
+                          Quantitative Strategy Development
+                        </Box>
+                        <Box
+                          component="li"
+                          onClick={() => {
+                            handleNavigation("/what-we-do/quant-desk-services");
+                          }}
+                          sx={{
+                            color: "#49326b",
+                            padding: "12px 20px",
+                            fontSize: "16px",
+                            cursor: "pointer",
+                            "&:hover": { backgroundColor: "#f5f5f5" },
+                          }}
+                        >
+                          Quant Desk Services
+                        </Box>
+                        <Box
+                          component="li"
+                          onClick={() => {
+                            handleNavigation("/what-we-do/strategy-deployment");
+                          }}
+                          sx={{
+                            color: "#49326b",
+                            padding: "12px 20px",
+                            fontSize: "16px",
+                            cursor: "pointer",
+                            "&:hover": { backgroundColor: "#f5f5f5" },
+                          }}
+                        >
+                          Strategy Deployment & Ongoing Support
+                        </Box>
+                        <Box
+                          component="li"
+                          onClick={() => {
+                            handleNavigation("/what-we-do/financial-training");
+                          }}
+                          sx={{
+                            color: "#49326b",
+                            padding: "12px 20px",
+                            fontSize: "16px",
+                            cursor: "pointer",
+                            "&:hover": { backgroundColor: "#f5f5f5" },
+                          }}
+                        >
+                          Financial Market Training
+                        </Box>
+
+                       
+                      </Box>
+                    </Collapse>
+                  </li>
+                  {/* What We Think */}
+                  <li style={{ marginTop: "10px" }}>
+                    <Button
+                      fullWidth
+                      sx={{
+                        color: "#49326b",
+                        justifyContent: "center",
+                        textTransform: "none",
+                        fontWeight: "bold",
+                        backgroundColor: "transparent",
+                        padding: "10px",
+                        borderRadius: "10px",
+                      }}
+                      onClick={() => handleMenuOpen("WhatWeThink")}
+                      endIcon={<FaAngleDown />}
+                    >
+                      What We Think
+                    </Button>
+                    <Collapse in={openDropdown === "WhatWeThink"} timeout={300}>
+                      <Box
+                        sx={{
+                          width: "100vw",
+                          maxWidth: "100%",
+                          maxHeight: "70vh",
+                          overflowY: "auto",
+                          backgroundColor: "#fff",
+                          color: "#49326b",
+                          boxShadow: "0 4px 20px rgba(0,0,0,0.2)",
+                          borderRadius: "0",
+                          marginTop: "0.5rem",
+                          padding: "0",
+                          textAlign: "center",
+                        }}
+                      >
+                        <Box
+                          component="li"
+                          onClick={() => {
+                            handleNavigation("/Blog/blogs");
+                          }}
+                          sx={{
+                            color: "#49326b",
+                            padding: "12px 20px",
+                            fontSize: "16px",
+                            cursor: "pointer",
+                            "&:hover": { backgroundColor: "#f5f5f5" },
+                          }}
+                        >
+                          Blogs
+                        </Box>
+                        <Box
+                          component="li"
+                          onClick={() => {
+                            handleNavigation("/Blog/videos");
+                          }}
+                          sx={{
+                            color: "#49326b",
+                            padding: "12px 20px",
+                            fontSize: "16px",
+                            cursor: "pointer",
+                            "&:hover": { backgroundColor: "#f5f5f5" },
+                          }}
+                        >
+                          Videos
+                        </Box>
+                        <Box
+                          component="li"
+                          onClick={() => {
+                            handleNavigation("/Blog/strategy-reports");
+                          }}
+                          sx={{
+                            color: "#49326b",
+                            padding: "12px 20px",
+                            fontSize: "16px",
+                            cursor: "pointer",
+                            "&:hover": { backgroundColor: "#f5f5f5" },
+                          }}
+                        >
+                          Reports
+                        </Box>
+                      </Box>
+                    </Collapse>
+                  </li>
+                  {/* Calculator */}
+                  <li style={{ marginTop: "10px" }}>
+                    <Button
+                      fullWidth
+                      sx={{
+                        color: "#49326b",
+                        justifyContent: "center",
+                        textTransform: "none",
+                        fontWeight: "bold",
+                        backgroundColor: "transparent",
+                        padding: "10px",
+                        borderRadius: "10px",
+                      }}
+                      onClick={() => handleMenuOpen("Calculator")}
+                      endIcon={<FaAngleDown />}
+                    >
+                      Calculator
+                    </Button>
+                    <Collapse in={openDropdown === "Calculator"} timeout={300}>
+                      <Box
+                        sx={{
+                          width: "100vw",
+                          maxWidth: "100%",
+                          maxHeight: "70vh",
+                          overflowY: "auto",
+                          backgroundColor: "#fff",
+                          color: "#49326b",
+                          boxShadow: "0 4px 20px rgba(0,0,0,0.2)",
+                          borderRadius: "0",
+                          marginTop: "0.5rem",
+                          padding: "0",
+                          textAlign: "center",
+                        }}
+                      >
+                        <Box
+                          component="li"
+                          onClick={() => {
+                            handleNavigation("/calculators/sip-calculator");
+                          }}
+                          sx={{
+                            color: "#49326b",
+                            padding: "12px 20px",
+                            fontSize: "16px",
+                            cursor: "pointer",
+                            "&:hover": { backgroundColor: "#f5f5f5" },
+                          }}
+                        >
+                          SIP
+                        </Box>
+                        <Box
+                          component="li"
+                          onClick={() => {
+                            handleNavigation("/calculators/lumpsum-calculator");
+                          }}
+                          sx={{
+                            color: "#49326b",
+                            padding: "12px 20px",
+                            fontSize: "16px",
+                            cursor: "pointer",
+                            "&:hover": { backgroundColor: "#f5f5f5" },
+                          }}
+                        >
+                          Lumpsum
+                        </Box>
+                        <Box
+                          component="li"
+                          onClick={() => {
+                            handleNavigation("/calculators/swp-calculator");
+                          }}
+                          sx={{
+                            color: "#49326b",
+                            padding: "12px 20px",
+                            fontSize: "16px",
+                            cursor: "pointer",
+                            "&:hover": { backgroundColor: "#f5f5f5" },
+                          }}
+                        >
+                          SWP
+                        </Box>
+                      </Box>
+                    </Collapse>
+                  </li>
+                  <Box
+                    sx={{
+                      backgroundColor: "#49326b",
+                      padding: "10px",
+                      maxWidth: "200px",
+                      width: "100%",
+                      borderRadius: "5px",
+                      margin: "10px auto",
+                    }}
+                  >
+                    <Button
+                      fullWidth
+                      sx={{
+                        color: "#fff",
+                        fontWeight: "bold",
+                        textTransform: "none",
+                      }}
+                      onClick={() => window.location.href = "https://trade.deepanindia.com"}
+                    >
+                      Algo Trading
+                    </Button>
+                  </Box>
+                </ul>
+              ) : (
+                // Desktop view
+                <ul className={styles.navLinks} ref={navContainerRef}>
+                  <li
+                    className={styles.navLink}
+                    onClick={() => handleDropdownToggle(0)}
+                    onMouseEnter={() => handleMouseEnter(0)}
+                    onMouseLeave={handleMouseLeave}
+                    style={{ display: "flex", letterSpacing: "1px" }}
+                  >
+                    What We Serve <FaAngleDown style={{ marginTop: "5px" }} />
+                    <div
+                      className={`${styles.dropdown} ${visibleDropdown === 0 ? styles.dropdownShow : ""
+                        }`}
+                    >
+                      <ul>
+                        <li
+                          onClick={() =>
+                            handleNavigation("/WhatWeServe/retail-investors")
+                          }
+                        >
+                          Retail Investors
+                        </li>
+                        <li
+                          onClick={() =>
+                            handleNavigation("/WhatWeServe/high-networth-individuals")
+                          }
+                        >
+                          High Net Worth Individuals (HNI)
+                        </li>
+                        <li
+                          onClick={() =>
+                            handleNavigation("/WhatWeServe/channel-partners")
+                          }
+                        >
+                          Channel Partners
+                        </li>
+                        <li
+                          onClick={() =>
+                            handleNavigation(
+                              "/WhatWeServe/aspiring-quant-traders"
+                            )
+                          }
+                        >
+                          Aspiring Quant Traders
+                        </li>
+                      </ul>
+                    </div>
+                  </li>
+                  <li
+                    className={styles.navLink}
+                    onClick={() => handleDropdownToggle(1)}
+                    onMouseEnter={() => handleMouseEnter(1)}
+                    onMouseLeave={handleMouseLeave}
+                    style={{ display: "flex" }}
+                  >
+                    What We Do <FaAngleDown style={{ marginTop: "5px" }} />
+                    <div
+                      className={`${styles.dropdown} ${visibleDropdown === 1 ? styles.dropdownShow : ""
+                        }`}
+                    >
+                      <ul>
+                        <li
+                          onClick={() =>
+                            handleNavigation("/what-we-do/algorithmic-trading")
+                          }
+                        >
+                          Algorithmic Trading
+                        </li>
+                        <li
+                          onClick={() =>
+                            handleNavigation(
+                              "/what-we-do/quantitative-strategy-development"
+                            )
+                          }
+                        >
+                          Quantitative Strategy Development
+                        </li>
+                        <li
+                          onClick={() =>
+                            handleNavigation("/what-we-do/quant-desk-services")
+                          }
+                        >
+                          Quant Desk Services
+                        </li>
+                        <li
+                          onClick={() =>
+                            handleNavigation("/what-we-do/strategy-deployment")
+                          }
+                        >
+                          Strategy Deployment & Ongoing Support
+                        </li>
+                        <li
+                          onClick={() =>
+                            handleNavigation("/what-we-do/financial-training")
+                          }
+                        >
+                          Financial Market Training
+                        </li>
+                        {/* 
+                        old codes
+                     
+                        <li
+                          onClick={() =>
+                            handleNavigation(
+                              "/service/alternative-investment-funds"
+                            )
+                          }
+                        >
+                          Alternative Investment Funds
+                        </li>
+                        <li
+                          onClick={() =>
+                            handleNavigation("/service/real-estate-funds")
+                          }
+                        >
+                          Real Estate Funds
+                        </li>
+                        <li
+                          onClick={() =>
+                            handleNavigation("/service/insurances")
+                          }
+                        >
+                          Insurances
+                        </li> */}
+                      </ul>
+                    </div>
+                  </li>
+                  <li
+                    className={styles.navLink}
+                    onClick={() => handleDropdownToggle(3)}
+                    onMouseEnter={() => handleMouseEnter(3)}
+                    onMouseLeave={handleMouseLeave}
+                    style={{ display: "flex" }}
+                  >
+                    What We Think <FaAngleDown style={{ marginTop: "5px" }} />
+                    <div
+                      className={`${styles.dropdown} ${visibleDropdown === 3 ? styles.dropdownShow : ""
+                        }`}
+                    >
+                      <ul>
+                        <li onClick={() => handleNavigation("/Blog/blogs")}>
+                          Blogs
+                        </li>
+                        <li onClick={() => handleNavigation("/Blog/videos")}>
+                          Videos
+                        </li>
+                        <li onClick={() => handleNavigation("/Blog/strategy-reports")}>
+                          Reports
+                        </li>
+                      </ul>
+                    </div>
+                  </li>
+                  <li
+                    className={styles.navLink}
+                    onClick={() => handleDropdownToggle(2)}
+                    onMouseEnter={() => handleMouseEnter(2)}
+                    onMouseLeave={handleMouseLeave}
+                    style={{ display: "flex" }}
+                  >
+                    Calculator <FaAngleDown style={{ marginTop: "5px" }} />
+                    <div
+                      className={`${styles.dropdown} ${visibleDropdown === 2 ? styles.dropdownShow : ""
+                        }`}
+                    >
+                      <ul>
+                        <li
+                          onClick={() =>
+                            handleNavigation("/calculators/sip-calculator")
+                          }
+                        >
+                          SIP
+                        </li>
+                        <li
+                          onClick={() =>
+                            handleNavigation("/calculators/lumpsum-calculator")
+                          }
+                        >
+                          Lumpsum
+                        </li>
+                        <li
+                          onClick={() =>
+                            handleNavigation("/calculators/swp-calculator")
+                          }
+                        >
+                          SWP
+                        </li>
+                      </ul>
+                    </div>
+                  </li>
+                  <Box
+                    sx={{
+                      backgroundColor: "#49326b",
+                      padding: "10px",
+                      maxWidth: "200px",
+                      width: "100%",
+                      borderRadius: "5px",
+                      display: { xs: "block", sm: "none" },
+                    }}
+                  >
+                    <Nav.Link
+                      onClick={() => handleNavigation("/")}
+                      style={{
+                        height: "40px",
+                        width: "120px",
+                        color: "#fff",
+                        borderRadius: "4px",
+                        cursor: "pointer",
+                        fontWeight: "bold",
+                        textAlign: "center",
+                        display: "inline-block",
+                        textDecoration: "none",
+                        alignContent: "center",
+                        marginLeft: "30px",
+                      }}
+                    >
+                      Algo Trading
+                    </Nav.Link>
+                  </Box>
+                </ul>
+              )}
+            </nav>
+          </div>
+        </Container>
+      </div>
+    </header>
+  );
+}

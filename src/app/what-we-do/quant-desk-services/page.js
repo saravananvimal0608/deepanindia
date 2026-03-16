@@ -11,8 +11,7 @@ import Image from "next/image";
 import Image1 from "../../../assets/desk-service.png";
 import Image2 from "../../../assets/19.png";
 import aboutImg1 from "../../../assets/studio-background-concept-abstract-empty-light-gradient-purple-studio-room-background-product.jpg";
-
-import GetMoreButton from "../../components/Button/page";
+import GetStartBtn from "../../components/GetStartBtn/page";
 import RadioButtonCheckedIcon from "@mui/icons-material/RadioButtonChecked";
 
 /* ---------------- ANIMATION ---------------- */
@@ -250,6 +249,7 @@ const QuantDesk = () => {
               </Box>
             </Grid>
           </Grid>
+        <GetStartBtn/>
 
         </Container>
       </SectionWrapper>

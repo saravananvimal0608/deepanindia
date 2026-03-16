@@ -301,7 +301,7 @@ export default function Footer() {
           <Grid item xs={12} md={4}>
             <Box className={styles.bottomLink1}>
               <a
-                href="https://www.instagram.com/deepanindia?igsh=MXNyNXh3a256NGNneg=="
+                href="https://www.instagram.com/deepan_india/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={styles.socialLink}

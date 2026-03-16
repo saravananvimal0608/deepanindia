@@ -10,6 +10,7 @@ import Image from "next/image";
 import Image1 from "../../../assets/retails.png";
 import aboutImg1 from "../../../assets/studio-background-concept-abstract-empty-light-gradient-purple-studio-room-background-product.jpg";
 import RadioButtonCheckedIcon from "@mui/icons-material/RadioButtonChecked";
+import GetStartBtn from "../../components/GetStartBtn/page";
 
 /* ---------------- ANIMATION ---------------- */
 
@@ -166,6 +167,7 @@ const RetailInvestor = () => {
             </Grid>
 
           </Grid>
+        <GetStartBtn/>
 
         </Container>
       </SectionWrapper>

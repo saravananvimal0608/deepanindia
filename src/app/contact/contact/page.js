@@ -118,14 +118,14 @@ const ContactPage = () => {
                 </Typography>
 
                 <Box sx={{ display: "flex", gap: "10px", mt: 2 }}>
-                  <Link href="https://wa.me/919999999999">
+                  <Link href="https://www.instagram.com/deepan_india/">
                     <Image
                       src={insta}
                       alt="whatsapp-icon"
                       style={{ width: "30px" }}
                     />
                   </Link>
-                  <Link href="https://wa.me/919999999999">
+                  <Link href="https://www.linkedin.com/company/deepan-india-financial-services-private-limited/">
                     <Image
                       src={linkedIn}
                       alt="whatsapp-icon"
@@ -149,10 +149,10 @@ const ContactPage = () => {
                       style={{ width: "30px" }}
                     />
                   </Link>
-                  <Link href="https://wa.me/919999999999">
+                  <Link href="">
                     <Image
                       src={tele}
-                      alt="whatsapp-icon"
+                      alt="tele-icon"
                       style={{ width: "30px" }}
                     />
                   </Link>

@@ -3,9 +3,10 @@
 import Image from "next/image";
 import { Container, Grid, Box, Typography, Divider } from "@mui/material";
 import core2 from "../../../../assets/image.png";
-import core1 from '../../../../assets/core-1.png'
+import core1 from '../../../../assets/quant-desk.avif'
 import core3 from '../../../../assets/core-3.avif'
 import core4 from '../../../../assets/core-4.avif'
+import core5 from '../../../../assets/Algo-trading.avif'
 
 import styled from "styled-components";
 
@@ -57,11 +58,11 @@ const CoreService = () => {
           <Grid item xs={12} sm={6} md={3}>
             <Box display="flex" alignItems="center" flexDirection="column">
               <Image
-                src={core2}
+                src={core5}
                 alt="core-service"
                 width={300}
                 height={200}
-                style={{ borderRadius: "10px" }}
+                style={{ borderRadius: "10px",height:"200px",objectFit:"cover" }}
               />
 
               <Typography
@@ -115,7 +116,7 @@ const CoreService = () => {
                 alt="core-service"
                 width={300}
                 height={200}
-                style={{ borderRadius: "10px" }}
+                style={{ borderRadius: "10px",height:"200px",objectFit:"cover" }}
               />
 
               <Typography

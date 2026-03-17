@@ -8,7 +8,7 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Link from "next/link";
 import Image from "next/image";
-import BackGroundImage1 from "../../../assets/tree-grows-coin-glass-jar-with-copy-space.jpg";
+import BackGroundImage1 from "../../../assets/home-image.avif";
 import BackGroundImage2 from "../../../assets/still-life-green-grapes-vineyard.jpg";
 
 const backgroundImages = [BackGroundImage1, BackGroundImage2];
@@ -46,7 +46,7 @@ const SlideShowBar = ({ data = [] }) => {
       onMouseLeave={() => setIsHover(false)}
     >
       <Image
-        src={backgroundImages[currentIndex]}
+        src={BackGroundImage1}
         alt="Background image"
         style={{
           width: "100%",
@@ -60,15 +60,7 @@ const SlideShowBar = ({ data = [] }) => {
         priority={true}
       />
       <Overlay />
-      <NavigationDots>
-        {backgroundImages.map((_, index) => (
-          <Dot
-            key={index}
-            $active={index === currentIndex} // Use $active to avoid passing to DOM
-            onClick={() => handleDotClick(index)}
-          />
-        ))}
-      </NavigationDots>
+
       <ContentBox>
         <Typography className="title" component="h1">
           A Technology-Driven <br /> Quant Desk in India

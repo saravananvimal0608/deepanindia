@@ -2,23 +2,12 @@
 
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
-import Divider from "@mui/material/Divider";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import { styled } from "@mui/system";
-import { keyframes } from "@emotion/react";
-import Image from "next/image";
-import Image1 from "../../../assets/aspiring-quant-traders.png";
 import aboutImg1 from "../../../assets/studio-background-concept-abstract-empty-light-gradient-purple-studio-room-background-product.jpg";
-import RadioButtonCheckedIcon from "@mui/icons-material/RadioButtonChecked";
+import Image from "next/image";
 
-/* ---------------- ANIMATION ---------------- */
-
-const fadeIn = keyframes`
-  0% { transform: scale(1.02); }
-  50% { transform: scale(1.03); }
-  100% { transform: scale(1); }
-`;
 
 /* ---------------- STYLES ---------------- */
 
@@ -30,38 +19,6 @@ const SectionWrapper = styled(Box)(({ theme }) => ({
   },
 }));
 
-const InfoCard = styled(Box)(() => ({
-  position: "relative",
-  maxWidth: "300px",
-  width: "100%",
-  border: "10px solid #e4d4fa",
-  padding: "20px",
-  borderRadius: "16px",
-  display: "flex",
-  flexDirection: "column",
-  justifyContent: "center",
-  animation: `${fadeIn} 6s ease-in-out infinite alternate`,
-  "&:hover": {
-    transition: "0.4s",
-    boxShadow: "0 20px 40px #49326b",
-  },
-}));
-
-const SectionTitle = styled(Typography)(({ theme }) => ({
-  fontSize: "1.2rem",
-  fontWeight: 900,
-  color: "#49326b",
-  [theme.breakpoints.down("sm")]: {
-    fontSize: "1.6rem",
-  },
-}));
-
-const StyledDivider = styled(Divider)({
-  backgroundColor: "#e4d4fa",
-  height: "10px",
-  width: "75%",
-  margin: "10px 0 10px 0",
-});
 
 /* ---------------- COMPONENT ---------------- */
 

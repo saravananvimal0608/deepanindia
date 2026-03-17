@@ -78,7 +78,12 @@ const AspiringQuant = () => {
           {/* SECTION 1 */}
           <Grid container spacing={4} alignItems="center">
             <Grid size={{ xs: 12 }}>
-              <Typography variant="h6" sx={{ color: "#49326b" }}>
+              <Typography variant="h6" sx={{
+                  color: "#49326b",
+                  textAlign: "left",
+                  lineHeight: 1.7,
+                  fontSize: { xs: "14px", md: "18px" },
+                }}>
                 We bridge the gap between theory and practical quant execution.
               </Typography>
             </Grid>

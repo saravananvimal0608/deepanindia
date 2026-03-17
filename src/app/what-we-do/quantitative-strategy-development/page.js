@@ -33,22 +33,6 @@ const SectionWrapper = styled(Box)(({ theme }) => ({
   },
 }));
 
-const InfoCard = styled(Box)(() => ({
-  position: "relative",
-  maxWidth: "300px",
-  width: "100%",
-  border: "10px solid #e4d4fa",
-  padding: "20px",
-  borderRadius: "16px",
-  display: "flex",
-  flexDirection: "column",
-  justifyContent: "center",
-  animation: `${fadeIn} 6s ease-in-out infinite alternate`,
-  "&:hover": {
-    transition: "0.4s",
-    boxShadow: "0 20px 40px #49326b",
-  },
-}));
 
 const SectionTitle = styled(Typography)(({ theme }) => ({
   fontSize: "2rem",
@@ -65,6 +49,13 @@ const StyledDivider = styled(Divider)({
   width: "75%",
   margin: "10px 0 10px 0",
 });
+
+const textAlign = {
+  color: "#49326b",
+  textAlign: "left",
+  lineHeight: 1.7,
+  fontSize: { xs: "14px", md: "18px" },
+};
 
 /* ---------------- COMPONENT ---------------- */
 
@@ -102,10 +93,10 @@ const QuantitativeStrategy = () => {
         <Container maxWidth="lg">
           {/* SECTION 1 */}
           <Grid container spacing={4} alignItems="center">
-
             <Grid item xs={12}>
-              <Typography variant="h6" sx={{ color: "#49326b" }}>
-                We convert trading and investment ideas into structured, testable systems.
+              <Typography variant="h6" sx={textAlign}>
+                We convert trading and investment ideas into structured,
+                testable systems.
               </Typography>
             </Grid>
 
@@ -116,11 +107,10 @@ const QuantitativeStrategy = () => {
                   border: "10px solid #e4d4fa",
                   borderRadius: "30px",
                   padding: "20px",
-                  height: "100%"
+                  height: "100%",
                 }}
               >
-                <SectionTitle>What We Offer:
-                </SectionTitle>
+                <SectionTitle>What We Offer:</SectionTitle>
 
                 <Typography sx={{ mt: 2, color: "#49326b" }}>
                   <RadioButtonCheckedIcon
@@ -130,31 +120,31 @@ const QuantitativeStrategy = () => {
                 </Typography>
 
                 <Typography sx={{ color: "#49326b" }}>
-
                   <RadioButtonCheckedIcon
                     style={{ paddingRight: "10px", fontSize: "35px" }}
-                  />Historical Backtesting
-
+                  />
+                  Historical Backtesting
                 </Typography>
 
                 <Typography sx={{ color: "#49326b" }}>
                   <RadioButtonCheckedIcon
                     style={{ paddingRight: "10px", fontSize: "35px" }}
-                  />Strategy Optimisation
+                  />
+                  Strategy Optimisation
                 </Typography>
 
                 <Typography sx={{ color: "#49326b" }}>
                   <RadioButtonCheckedIcon
                     style={{ paddingRight: "10px", fontSize: "35px" }}
-                  /> Performance Analytics
+                  />{" "}
+                  Performance Analytics
                 </Typography>
                 <Typography sx={{ color: "#49326b" }}>
                   <RadioButtonCheckedIcon
                     style={{ paddingRight: "10px", fontSize: "35px" }}
-                  />Semi / Fully Automated Deployment
+                  />
+                  Semi / Fully Automated Deployment
                 </Typography>
-
-
               </Box>
             </Grid>
 
@@ -172,27 +162,36 @@ const QuantitativeStrategy = () => {
                   alt="algo"
                   width={400}
                   height={260}
-
                   style={{
                     width: "100%",
                     height: "260px",
                     objectFit: "cover",
-                    borderRadius: "12px"
+                    borderRadius: "12px",
                   }}
                 />
               </Box>
             </Grid>
-
           </Grid>
 
-          <Typography variant="h6" sx={{ mt: 4, mb: 6, color: "#49326b" }}>
-            If you have a trading concept, we convert it into a measurable quant model.
+          <Typography variant="h6" sx={{ mt: 4, mb: 6, ...textAlign}}>
+            If you have a trading concept, we convert it into a measurable quant
+            model.
           </Typography>
 
           {/* TITLE */}
 
-          <Box sx={{ display: 'flex', flexDirection: "column", justifyContent: "center", alignItems: 'center' }}>
-            <Typography variant="h3" sx={{ color: "#49326b", fontWeight: 700, textAlign: "center" }}>
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <Typography
+              variant="h3"
+              sx={{ color: "#49326b", fontWeight: 700, textAlign: "center" }}
+            >
               Turning Ideas Into Tested Strategies
             </Typography>
 
@@ -204,22 +203,27 @@ const QuantitativeStrategy = () => {
           <Grid container spacing={4} alignItems="center">
             {/* TEXT */}
             <Grid size={{ xs: 12, md: 6 }}>
-              <Typography sx={{ mb: 2, color: "#49326b", fontWeight: 700 }}>
-                Arun, an engineering graduate passionate about financial markets, often came up with trading ideas based on price patterns and indicators.
-
+              <Typography sx={{ mb: 2, color: "#49326b", fontWeight: 700,...textAlign }}>
+                Arun, an engineering graduate passionate about financial
+                markets, often came up with trading ideas based on price
+                patterns and indicators.
               </Typography>
 
-              <Typography sx={{ mb: 2, color: "#49326b", fontWeight: 700 }}>
-                But he had one major question: Do these ideas actually work consistently?
+              <Typography sx={{ mb: 2, color: "#49326b", fontWeight: 700,...textAlign }}>
+                But he had one major question: Do these ideas actually work
+                consistently?
               </Typography>
 
-              <Typography sx={{ mb: 2, color: "#49326b", fontWeight: 700 }}>
-                That’s when he discovered the importance of quantitative strategy development, where trading ideas are converted into rule-based models and tested using historical market data.
-
+              <Typography sx={{ mb: 2, color: "#49326b", fontWeight: 700,...textAlign }}>
+                That’s when he discovered the importance of quantitative
+                strategy development, where trading ideas are converted into
+                rule-based models and tested using historical market data.
               </Typography>
 
-              <Typography sx={{ color: "#49326b", fontWeight: 700 }}>
-                By turning ideas into data-backed strategies, traders can evaluate performance, refine rules, and remove guesswork from decision-making.
+              <Typography sx={{ color: "#49326b", fontWeight: 700,...textAlign}}>
+                By turning ideas into data-backed strategies, traders can
+                evaluate performance, refine rules, and remove guesswork from
+                decision-making.
               </Typography>
             </Grid>
 
@@ -241,8 +245,7 @@ const QuantitativeStrategy = () => {
               </Box>
             </Grid>
           </Grid>
-        <GetStartBtn/>
-
+          <GetStartBtn />
         </Container>
       </SectionWrapper>
     </>

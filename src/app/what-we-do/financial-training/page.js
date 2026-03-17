@@ -32,22 +32,6 @@ const SectionWrapper = styled(Box)(({ theme }) => ({
   },
 }));
 
-const InfoCard = styled(Box)(() => ({
-  position: "relative",
-  maxWidth: "300px",
-  width: "100%",
-  border: "10px solid #e4d4fa",
-  padding: "20px",
-  borderRadius: "16px",
-  display: "flex",
-  flexDirection: "column",
-  justifyContent: "center",
-  animation: `${fadeIn} 6s ease-in-out infinite alternate`,
-  "&:hover": {
-    transition: "0.4s",
-    boxShadow: "0 20px 40px #49326b",
-  },
-}));
 
 const SectionTitle = styled(Typography)(({ theme }) => ({
   fontSize: "2rem",
@@ -65,6 +49,12 @@ const StyledDivider = styled(Divider)({
   margin: "10px 0 10px 0",
 });
 
+const textAlign = {
+  color: "#49326b",
+  textAlign: "left",
+  lineHeight: 1.7,
+  fontSize: { xs: "14px", md: "18px" },
+};
 /* ---------------- COMPONENT ---------------- */
 
 const FinancialTraining = () => {
@@ -103,7 +93,7 @@ const FinancialTraining = () => {
           <Grid container spacing={4} alignItems="center">
 
             <Grid size={{ xs: 12 }}>
-              <Typography variant="h6" sx={{ color: "#49326b" }}>
+              <Typography variant="h6" sx={textAlign}>
                 Our training programs are designed for individuals who want to understand systematic trading at a professional level.
               </Typography>
             </Grid>
@@ -183,7 +173,7 @@ const FinancialTraining = () => {
 
           </Grid>
 
-          <Typography variant="h6" sx={{ mt: 4, mb: 6, color: "#49326b" }}>
+          <Typography variant="h6" sx={{ mt: 4, mb: 6, ...textAlign}}>
             We bridge financial literacy through structured market education programs.          </Typography>
 
           {/* TITLE */}
@@ -200,19 +190,19 @@ const FinancialTraining = () => {
           <Grid container spacing={4} alignItems="center">
             {/* TEXT */}
             <Grid size={{ xs: 12, md: 6 }}>
-              <Typography sx={{ mb: 2, color: "#49326b", fontWeight: 700 }}>
+              <Typography sx={{ mb: 2, color: "#49326b", fontWeight: 700,...textAlign }}>
                 Priya a home maker wanted to understand the stock market beyond social media tips and random recommendations.
 
 
 
               </Typography>
 
-              <Typography sx={{ mb: 2, color: "#49326b", fontWeight: 700 }}>
+              <Typography sx={{ mb: 2, color: "#49326b", fontWeight: 700,...textAlign }}>
                 She realized that successful traders often rely on structured knowledge of options strategies, risk management, and systematic trading frameworks.
 
               </Typography>
 
-              <Typography sx={{ mb: 2, color: "#49326b", fontWeight: 700 }}>
+              <Typography sx={{ mb: 2, color: "#49326b", fontWeight: 700,...textAlign }}>
                 Through proper financial market training, beginners like Priya can build a strong foundation and gradually learn how disciplined traders approach the markets.
               </Typography>
 

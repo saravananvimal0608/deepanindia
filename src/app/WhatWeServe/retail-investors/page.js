@@ -30,8 +30,6 @@ const SectionWrapper = styled(Box)(({ theme }) => ({
   },
 }));
 
-
-
 const SectionTitle = styled(Typography)(({ theme }) => ({
   fontSize: "2rem",
   fontWeight: 900,
@@ -40,8 +38,6 @@ const SectionTitle = styled(Typography)(({ theme }) => ({
     fontSize: "1.6rem",
   },
 }));
-
-
 
 /* ---------------- COMPONENT ---------------- */
 
@@ -79,10 +75,20 @@ const RetailInvestor = () => {
         <Container maxWidth="lg">
           {/* SECTION 1 */}
           <Grid container spacing={4} alignItems="center">
-
             <Grid size={{ xs: 12 }}>
-              <Typography variant="h6" sx={{ color: "#49326b" }}>
-                Retail investors looking to transition from discretionary trading to systematic execution can leverage our algorithmic trading infrastructure. Our Algo Trading Chennai desk ensures disciplined execution aligned with individual risk appetite.
+              <Typography
+                variant="h6"
+                sx={{
+                  color: "#49326b",
+                  textAlign: "left",
+                  lineHeight: 1.7,
+                  fontSize: { xs: "14px", md: "18px" },
+                }}
+              >
+                Retail investors looking to transition from discretionary
+                trading to systematic execution can leverage our algorithmic
+                trading infrastructure. Our Algo Trading Chennai desk ensures
+                disciplined execution aligned with individual risk appetite.
               </Typography>
             </Grid>
 
@@ -93,53 +99,51 @@ const RetailInvestor = () => {
                   border: "10px solid #e4d4fa",
                   borderRadius: "30px",
                   padding: "20px",
-                  height: "100%"
+                  height: "100%",
                 }}
               >
-                <SectionTitle>We help retail participants:
-                </SectionTitle>
+                <SectionTitle>We help retail participants:</SectionTitle>
 
                 <Typography sx={{ mt: 2, color: "#49326b" }}>
                   <RadioButtonCheckedIcon
                     style={{ paddingRight: "10px", fontSize: "35px" }}
                   />
                   Lumpsum investment in stocks using Momentum strategy
-
-                </Typography>
-
-                <Typography sx={{ color: "#49326b" }}>
-
-                  <RadioButtonCheckedIcon
-                    style={{ paddingRight: "10px", fontSize: "35px" }}
-                  />SIP in Stocks using AI-designed Portfolio
-
                 </Typography>
 
                 <Typography sx={{ color: "#49326b" }}>
                   <RadioButtonCheckedIcon
                     style={{ paddingRight: "10px", fontSize: "35px" }}
-                  />Swing Trading in Stocks using technical quants
-
+                  />
+                  SIP in Stocks using AI-designed Portfolio
                 </Typography>
 
                 <Typography sx={{ color: "#49326b" }}>
                   <RadioButtonCheckedIcon
                     style={{ paddingRight: "10px", fontSize: "35px" }}
-                  /> Deploy rule-based strategies
-
+                  />
+                  Swing Trading in Stocks using technical quants
                 </Typography>
 
                 <Typography sx={{ color: "#49326b" }}>
                   <RadioButtonCheckedIcon
                     style={{ paddingRight: "10px", fontSize: "35px" }}
-                  /> Automate Index & F&O trading
+                  />{" "}
+                  Deploy rule-based strategies
                 </Typography>
 
                 <Typography sx={{ color: "#49326b" }}>
                   <RadioButtonCheckedIcon
                     style={{ paddingRight: "10px", fontSize: "35px" }}
-                  />Implement risk-defined capital allocation
+                  />{" "}
+                  Automate Index & F&O trading
+                </Typography>
 
+                <Typography sx={{ color: "#49326b" }}>
+                  <RadioButtonCheckedIcon
+                    style={{ paddingRight: "10px", fontSize: "35px" }}
+                  />
+                  Implement risk-defined capital allocation
                 </Typography>
               </Box>
             </Grid>
@@ -160,15 +164,13 @@ const RetailInvestor = () => {
                     width: "100%",
                     height: "330px",
                     objectFit: "cover",
-                    borderRadius: "12px"
+                    borderRadius: "12px",
                   }}
                 />
               </Box>
             </Grid>
-
           </Grid>
-        <GetStartBtn/>
-
+          <GetStartBtn />
         </Container>
       </SectionWrapper>
     </>

@@ -95,7 +95,12 @@ const ChannelPartner = () => {
           <Grid container spacing={4} alignItems="center">
 
             <Grid size={{ xs: 12 }}>
-              <Typography variant="h6" sx={{ color: "#49326b" }}>
+              <Typography variant="h6" sx={{
+                  color: "#49326b",
+                  textAlign: "left",
+                  lineHeight: 1.7,
+                  fontSize: { xs: "14px", md: "18px" },
+                }}>
                 We collaborate with financial professionals, sub-brokers, and independent advisors who want access to algorithmic trading infrastructure without building technology in-house. We enable partners to offer structured algo solutions under a professional quant framework.              </Typography>
             </Grid>
 

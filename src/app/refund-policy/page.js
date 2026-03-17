@@ -82,7 +82,7 @@ const RefundPolicy = () => {
               </Typography>
 
               {/* 1. Advisory Services */}
-              <Box className="mb-8">
+              {/* <Box className="mb-8">
                 <Typography
                   variant="h6"
                   component="h3"
@@ -105,7 +105,7 @@ const RefundPolicy = () => {
                     No refunds will be issued after the 7-day period.
                   </Typography>
                 </Box>
-              </Box>
+              </Box> */}
 
               {/* 2. Algo Trading Solutions */}
               <Box className="mb-8">
@@ -115,7 +115,7 @@ const RefundPolicy = () => {
                   className="text-xl font-semibold text-blue-800 mb-3"
                   sx={{ color: "#49326b" }}
                 >
-                  2. Algo Trading Solutions – No Refund Policy
+                  1. Algo Trading Solutions – No Refund Policy
                 </Typography>
                 <Typography variant="body1" sx={{ color: "#49326b" }}>
                   Due to the nature of digital products and the proprietary logic embedded
@@ -158,7 +158,7 @@ const RefundPolicy = () => {
                   FAQs
                 </Typography>
 
-                <Box className="bg-gray-50 p-4 rounded-lg mb-4 border-l-4 border-blue-500">
+                {/* <Box className="bg-gray-50 p-4 rounded-lg mb-4 border-l-4 border-blue-500">
                   <Typography variant="subtitle1" component="h4" className="font-medium text-gray-900 mb-2" sx={{ color: '#49326b' }}>
                     Q1. What qualifies for a refund in advisory services?
                   </Typography>
@@ -166,11 +166,11 @@ const RefundPolicy = () => {
                     If you cancel within 7 days of subscribing to any of our advisory plans,
                     you are eligible for a full refund—no questions asked.
                   </Typography>
-                </Box>
+                </Box> */}
 
                 <Box className="bg-gray-50 p-4 rounded-lg mb-4 border-l-4 border-blue-500" >
                   <Typography variant="subtitle1" component="h4" className="font-medium text-gray-900 mb-2" sx={{ color: '#49326b' }}>
-                    Q2. Can I get a refund for algo trading products if I didn’t use them?
+                    Q1. Can I get a refund for algo trading products if I didn’t use them?
                   </Typography>
                   <Typography variant="body2"sx={{ color: '#49326b' }}>
                     Unfortunately, once access has been granted, no refunds are issued
@@ -181,7 +181,7 @@ const RefundPolicy = () => {
 
                 <Box className="bg-gray-50 p-4 rounded-lg mb-4 border-l-4 border-blue-500">
                   <Typography variant="subtitle1" component="h4" className="font-medium text-gray-900 mb-2" sx={{ color: '#49326b' }}>
-                    Q3. How do I request a refund?
+                    Q2. How do I request a refund?
                   </Typography>
                   <Typography variant="body2"sx={{ color: '#49326b' }}>
                     Please mail to support@deepanindia.com with your name, order details,
@@ -191,7 +191,7 @@ const RefundPolicy = () => {
 
                 <Box className="bg-gray-50 p-4 rounded-lg mb-4 border-l-4 border-blue-500">
                   <Typography variant="subtitle1" component="h4" className="font-medium text-gray-900 mb-2" sx={{ color: '#49326b' }}>
-                    Q4. What if I face a technical issue?
+                    Q3. What if I face a technical issue?
                   </Typography>
                   <Typography variant="body2"sx={{ color: '#49326b' }}>
                     Our support team is available to assist you with any technical
@@ -202,7 +202,7 @@ const RefundPolicy = () => {
 
                 <Box className="bg-gray-50 p-4 rounded-lg border-l-4 border-blue-500">
                   <Typography variant="subtitle1" component="h4" className="font-medium text-gray-900 mb-2" sx={{ color: '#49326b' }}>
-                    Q5. Can I transfer my subscription to someone else?
+                    Q4. Can I transfer my subscription to someone else?
                   </Typography>
                   <Typography variant="body2" sx={{ color: '#49326b' }}>
                     No, all subscriptions are non-transferable and linked to the

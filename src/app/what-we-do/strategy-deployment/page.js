@@ -32,22 +32,7 @@ const SectionWrapper = styled(Box)(({ theme }) => ({
   },
 }));
 
-const InfoCard = styled(Box)(() => ({
-  position: "relative",
-  maxWidth: "300px",
-  width: "100%",
-  border: "10px solid #e4d4fa",
-  padding: "20px",
-  borderRadius: "16px",
-  display: "flex",
-  flexDirection: "column",
-  justifyContent: "center",
-  animation: `${fadeIn} 6s ease-in-out infinite alternate`,
-  "&:hover": {
-    transition: "0.4s",
-    boxShadow: "0 20px 40px #49326b",
-  },
-}));
+
 
 const SectionTitle = styled(Typography)(({ theme }) => ({
   fontSize: "2rem",
@@ -65,6 +50,13 @@ const StyledDivider = styled(Divider)({
   margin: "10px 0 10px 0",
 });
 
+
+const textAlign = {
+  color: "#49326b",
+  textAlign: "left",
+  lineHeight: 1.7,
+  fontSize: { xs: "14px", md: "18px" },
+};
 /* ---------------- COMPONENT ---------------- */
 
 const StrategyDeployment = () => {
@@ -103,7 +95,7 @@ const StrategyDeployment = () => {
           <Grid container spacing={4} alignItems="center">
 
             <Grid size={{ xs: 12 }}>
-              <Typography variant="h6" sx={{ color: "#49326b" }}>
+              <Typography variant="h6" sx={textAlign}>
                 Execution without monitoring is incomplete.
               </Typography>
             </Grid>
@@ -182,14 +174,14 @@ const StrategyDeployment = () => {
 
           </Grid>
 
-          <Typography variant="h6" sx={{ mt: 4, mb: 6, color: "#49326b" }}>
+          <Typography variant="h6" sx={{ mt: 4, mb: 6, ...textAlign }}>
             Every deployment is aligned with the client’s risk appetite and capital exposure in Deepan India
           </Typography>
 
           {/* TITLE */}
 
           <Box sx={{ display: 'flex', flexDirection: "column", justifyContent: "center", alignItems: 'center' }}>
-            <Typography variant="h3" sx={{ color: "#49326b", fontWeight: 700, textAlign: "center" }}>
+            <Typography variant="h3" sx={{ color: "#49326b", fontWeight: 700,...textAlign}}>
               Execution Matters as Much as Strategy
             </Typography>
 
@@ -201,23 +193,23 @@ const StrategyDeployment = () => {
           <Grid container spacing={4} alignItems="center">
             {/* TEXT */}
             <Grid size={{ xs: 12, md: 6 }}>
-              <Typography sx={{ mb: 2, color: "#49326b", fontWeight: 700 }}>
+              <Typography sx={{ mb: 2, color: "#49326b", fontWeight: 700,...textAlign }}>
                 Dr. Karthik, a busy medical professional, wanted to participate in financial markets but had limited time to actively manage trades.
 
 
               </Typography>
 
-              <Typography sx={{ mb: 2, color: "#49326b", fontWeight: 700 }}>
+              <Typography sx={{ mb: 2, color: "#49326b", fontWeight: 700,...textAlign }}>
                 He understood the importance of having a structured strategy, but execution and monitoring remained a challenge.
 
               </Typography>
 
-              <Typography sx={{ mb: 2, color: "#49326b", fontWeight: 700 }}>
+              <Typography sx={{ mb: 2, color: "#49326b", fontWeight: 700,...textAlign }}>
                 That’s when he explored the concept of strategy deployment and systematic execution, where trading systems are monitored, strategies are deployed properly, and performance is reviewed periodically.
 
               </Typography>
 
-              <Typography sx={{ color: "#49326b", fontWeight: 700 }}>
+              <Typography sx={{ color: "#49326b", fontWeight: 700,...textAlign }}>
                 For professionals with demanding careers, structured deployment helps ensure strategies operate as intended without constant manual intervention.
 
               </Typography>

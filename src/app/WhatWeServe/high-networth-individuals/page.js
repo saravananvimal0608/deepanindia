@@ -32,8 +32,6 @@ const SectionWrapper = styled(Box)(({ theme }) => ({
   },
 }));
 
-
-
 const SectionTitle = styled(Typography)(({ theme }) => ({
   fontSize: "1.5rem",
   fontWeight: 900,
@@ -79,10 +77,18 @@ const HighNetWorth = () => {
         <Container maxWidth="lg">
           {/* SECTION 1 */}
           <Grid container spacing={4} alignItems="center">
-
             <Grid size={{ xs: 12 }}>
-              <Typography variant="h6" sx={{ color: "#49326b" }}>
-                Our Quant Desk in India focuses on consistency, drawdown control, and systematic growth not speculative exposure.
+              <Typography
+                variant="h6"
+                sx={{
+                  color: "#49326b",
+                  textAlign: "left",
+                  lineHeight: 1.7,
+                  fontSize: { xs: "14px", md: "18px" },
+                }}
+              >
+                Our Quant Desk in India focuses on consistency, drawdown
+                control, and systematic growth not speculative exposure.
               </Typography>
             </Grid>
 
@@ -93,11 +99,12 @@ const HighNetWorth = () => {
                   border: "10px solid #e4d4fa",
                   borderRadius: "30px",
                   padding: "20px",
-                  height: "100%"
+                  height: "100%",
                 }}
               >
-                <SectionTitle>For HNIs seeking structured capital deployment, Deepan India offers:
-
+                <SectionTitle>
+                  For HNIs seeking structured capital deployment, Deepan India
+                  offers:
                 </SectionTitle>
 
                 <Typography sx={{ mt: 2, color: "#49326b" }}>
@@ -105,39 +112,34 @@ const HighNetWorth = () => {
                     style={{ paddingRight: "10px", fontSize: "35px" }}
                   />
                   Multi-strategy portfolio construction
-
-
-                </Typography>
-
-                <Typography sx={{ color: "#49326b" }}>
-
-                  <RadioButtonCheckedIcon
-                    style={{ paddingRight: "10px", fontSize: "35px" }}
-                  />Quant research-backed systems
-
-
                 </Typography>
 
                 <Typography sx={{ color: "#49326b" }}>
                   <RadioButtonCheckedIcon
                     style={{ paddingRight: "10px", fontSize: "35px" }}
-                  />Risk management structuring
-
-
+                  />
+                  Quant research-backed systems
                 </Typography>
 
                 <Typography sx={{ color: "#49326b" }}>
                   <RadioButtonCheckedIcon
                     style={{ paddingRight: "10px", fontSize: "35px" }}
-                  /> Performance analytics & reporting
-
-
+                  />
+                  Risk management structuring
                 </Typography>
 
                 <Typography sx={{ color: "#49326b" }}>
                   <RadioButtonCheckedIcon
                     style={{ paddingRight: "10px", fontSize: "35px" }}
-                  /> Capital optimisation models
+                  />{" "}
+                  Performance analytics & reporting
+                </Typography>
+
+                <Typography sx={{ color: "#49326b" }}>
+                  <RadioButtonCheckedIcon
+                    style={{ paddingRight: "10px", fontSize: "35px" }}
+                  />{" "}
+                  Capital optimisation models
                 </Typography>
               </Box>
             </Grid>
@@ -158,15 +160,13 @@ const HighNetWorth = () => {
                     width: "100%",
                     height: "320px",
                     objectFit: "cover",
-                    borderRadius: "12px"
+                    borderRadius: "12px",
                   }}
                 />
               </Box>
             </Grid>
-
           </Grid>
-        <GetStartBtn/>
-
+          <GetStartBtn />
         </Container>
       </SectionWrapper>
     </>

@@ -11,7 +11,7 @@ import Image from "next/image";
 import Image1 from "../../../assets/16.png";
 import Image2 from "../../../assets/1.png";
 import aboutImg1 from "../../../assets/studio-background-concept-abstract-empty-light-gradient-purple-studio-room-background-product.jpg";
-import GetStartBtn from '../../components/GetStartBtn/GetStartBtn'
+import GetStartBtn from "../../components/GetStartBtn/GetStartBtn";
 
 /* ---------------- ANIMATION ---------------- */
 
@@ -101,7 +101,15 @@ const AlgorithmicTrading = () => {
           {/* SECTION 1 */}
           <Grid container spacing={4} alignItems="center">
             <Grid item xs={12}>
-              <Typography variant="h6" sx={{ color: "#49326b" }}>
+              <Typography
+                variant="h6"
+                sx={{
+                  color: "#49326b",
+                  textAlign: "left",
+                  lineHeight: 1.7,
+                  fontSize: { xs: "14px", md: "18px" },
+                }}
+              >
                 Deepan India designs and deploys rule-based automated strategies
                 across Index Options, Stock & Index, Futures, Commodities F&O,
                 Intraday Systems, Positional Strategies, Multi-Strategy
@@ -162,7 +170,17 @@ const AlgorithmicTrading = () => {
             </Grid>
           </Grid>
 
-          <Typography variant="h6" sx={{ mt: 4, mb: 6, color: "#49326b" }}>
+          <Typography
+            variant="h6"
+            sx={{
+              mt: 4,
+              mb: 6,
+              color: "#49326b",
+              textAlign: "left",
+              lineHeight: 1.7,
+              fontSize: { xs: "14px", md: "18px" },
+            }}
+          >
             As a trusted name in Algo Trading Chennai, we ensure disciplined
             deployment aligned with risk profiles.
           </Typography>
@@ -192,23 +210,55 @@ const AlgorithmicTrading = () => {
           <Grid container spacing={4} alignItems="center">
             {/* TEXT */}
             <Grid size={{ xs: 12, md: 6 }}>
-              <Typography sx={{ mb: 2, color: "#49326b", fontWeight: 700 }}>
+              <Typography
+                sx={{
+                  mb: 2,
+                  color: "#49326b",
+                  textAlign: "left",
+                  lineHeight: 1.7,
+                  fontSize: { xs: "14px", md: "18px" },
+                }}
+              >
                 Ramesh runs a kirana store in Chennai. Like many small business
                 owners, he was curious about the stock market but struggled to
                 find time to monitor charts all day.
               </Typography>
 
-              <Typography sx={{ mb: 2, color: "#49326b", fontWeight: 700 }}>
+              <Typography
+                sx={{
+                  mb: 2,
+                  color: "#49326b",
+                  textAlign: "left",
+                  lineHeight: 1.7,
+                  fontSize: { xs: "14px", md: "18px" },
+                }}
+              >
                 Manual trading often led to emotional decisions and missed
                 opportunities.
               </Typography>
 
-              <Typography sx={{ mb: 2, color: "#49326b", fontWeight: 700 }}>
+              <Typography
+                sx={{
+                  mb: 2,
+                  color: "#49326b",
+                  textAlign: "left",
+                  lineHeight: 1.7,
+                  fontSize: { xs: "14px", md: "18px" },
+                }}
+              >
                 When he discovered algorithmic trading strategies, he realized
                 trades could be executed automatically using predefined rules.
               </Typography>
 
-              <Typography sx={{ color: "#49326b", fontWeight: 700 }}>
+              <Typography
+                sx={{
+                  mb: 2,
+                  color: "#49326b",
+                  textAlign: "left",
+                  lineHeight: 1.7,
+                  fontSize: { xs: "14px", md: "18px" },
+                }}
+              >
                 Today, traders like Ramesh explore algo trading solutions
                 without constantly watching the screen.
               </Typography>

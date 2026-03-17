@@ -270,6 +270,22 @@ export default function Header() {
                     </Button>
                   </li>
 
+                   <li style={{ marginTop: "10px" }}>
+                    <Button
+                      fullWidth
+                      sx={{
+                        color: "#49326b",
+                        textTransform: "none",
+                        fontWeight: "bold",
+                      }}
+                      onClick={() => handleNavigation("/About/about")}
+                    >
+                      About Us
+                    </Button>
+                  </li>
+
+                  
+
                   {/* Partner With Us */}
                   <li style={{ marginTop: "10px" }}>
                     <Button

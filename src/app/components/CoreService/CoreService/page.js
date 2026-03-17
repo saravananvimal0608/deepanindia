@@ -4,6 +4,9 @@ import Image from "next/image";
 import { Container, Grid, Box, Typography, Divider } from "@mui/material";
 import core2 from "../../../../assets/image.png";
 import core1 from '../../../../assets/core-1.png'
+import core3 from '../../../../assets/core-3.avif'
+import core4 from '../../../../assets/core-4.avif'
+
 import styled from "styled-components";
 
 const StyledDivider = styled(Divider)({
@@ -138,7 +141,7 @@ const CoreService = () => {
           <Grid item xs={12} sm={6} md={4}>
             <Box display="flex" alignItems="center" flexDirection="column">
               <Image
-                src={core2}
+                src={core3}
                 alt="core-service"
                 width={300}
                 height={200}
@@ -149,7 +152,7 @@ const CoreService = () => {
                 sx={{
                   color: "#49326B",
                   fontWeight: 600,
-                  textAlign: "center",
+                  textAlign: "center",  
                   pt: 2,
                   fontSize: "1.3rem",
                   maxWidth: "280px",
@@ -165,7 +168,7 @@ const CoreService = () => {
           <Grid item xs={12} sm={6} md={4}>
             <Box display="flex" alignItems="center" flexDirection="column">
               <Image
-                src={core2}
+                src={core4}
                 alt="core-service"
                 width={300}
                 height={200}

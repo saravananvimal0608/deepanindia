@@ -25,11 +25,11 @@ const geistMono = Geist_Mono({
 export const metadata = {
   // Primary SEO Information
   title: {
-    default: "Deepan India Financial Services - Your Partner in Wealth Growth",
+    default: "Deepan India | Quant Desk in India | Algo Trading Chennai",
     template: "%s | Deepan India",
   },
   description:
-    "Deepan India offers comprehensive financial services including mutual funds, retirement planning, algo trading, wealth management, and financial education. Grow and secure your wealth with expert guidance.",
+    "Deepan India is a growing Quant Desk in India offering algorithmic trading, quant strategies, and data-driven investment solutions. Based in Chennai, we help investors and traders achieve disciplined, systematic market participation.",
   keywords: [
     "Deepan India",
     "Financial Services",

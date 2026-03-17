@@ -201,7 +201,7 @@ const ContactPage = () => {
 
                   <Typography sx={{ color: "#49326b" }}>
                     <b>Call Us</b> <br />
-                    +91 73583 11611
+                    +91 7358311611
                   </Typography>
                 </Box>
 

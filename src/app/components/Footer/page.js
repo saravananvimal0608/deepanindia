@@ -257,7 +257,7 @@ export default function Footer() {
               <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
                 <LocalPhoneIcon sx={{ fontSize: 20, color: "#49326b" }} />
                 <Typography className={styles.linkItem}>
-                  +91 73583 11611
+                  +91 7358311611
                 </Typography>
               </Box>
               <Box

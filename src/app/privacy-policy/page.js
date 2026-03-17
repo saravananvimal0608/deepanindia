@@ -467,7 +467,7 @@ const PrivacyPolicy = () => {
                         </Typography>
                         <Typography variant="body2">
                           <LocalPhoneIcon />
-                          +91-9884411611
+                          +91-7358311611
                         </Typography>
                       </Grid>
                       <Grid item xs={12}>

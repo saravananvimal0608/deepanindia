@@ -7,7 +7,7 @@ const schema = {
     logo: "https://deepanindia.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2FEditedLogo-removebg-preview.35b1ca45.png&w=1920&q=75",
     contactPoint: {
       "@type": "ContactPoint",
-      telephone: "+91-9884411611",
+      telephone: "+91-7358311611",
       contactType: "customer service",
       contactOption: "TollFree",
       areaServed: "IN",

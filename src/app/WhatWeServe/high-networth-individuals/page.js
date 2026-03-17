@@ -12,7 +12,7 @@ import Image1 from "../../../assets/what-we-serve-1.avif";
 // import Image1 from "../../../assets/high-networth.png";
 import aboutImg1 from "../../../assets/studio-background-concept-abstract-empty-light-gradient-purple-studio-room-background-product.jpg";
 import RadioButtonCheckedIcon from "@mui/icons-material/RadioButtonChecked";
-import GetStartBtn from "../../components/GetStartBtn/page";
+import GetStartBtn from "../../components/GetStartBtn/GetStartBtn";
 
 /* ---------------- ANIMATION ---------------- */
 

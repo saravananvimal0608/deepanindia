@@ -12,7 +12,7 @@ import Image1 from "../../../assets/financial-training.png";
 import Image2 from "../../../assets/financial-training-1.png";
 import aboutImg1 from "../../../assets/studio-background-concept-abstract-empty-light-gradient-purple-studio-room-background-product.jpg";
 import RadioButtonCheckedIcon from "@mui/icons-material/RadioButtonChecked";
-import GetStartBtn from "../../components/GetStartBtn/page";
+import GetStartBtn from "../../components/GetStartBtn/GetStartBtn";
 
 /* ---------------- ANIMATION ---------------- */
 

@@ -68,7 +68,7 @@ const PrivacyPolicy = () => {
               sx={{ color: "#49326b" }}
               className="text-sm"
             >
-              Last Updated: April 4, 2025
+              Last Updated:  March 17, 2026
             </Typography>
           </Box>
 

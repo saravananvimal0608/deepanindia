@@ -62,7 +62,7 @@ const RefundPolicy = () => {
           {/* Last Updated Section (consistent with Privacy Policy) */}
           <Box className="bg-blue-50 p-6 border-b border-blue-100">
             <Typography variant="body2" sx={{ color: "#49326b" }} className="text-sm">
-              Last Updated: April 4, 2025 {/* Update this date if needed */}
+              Last Updated:  March 17, 2026 {/* Update this date if needed */}
             </Typography>
           </Box>
 

@@ -7,7 +7,7 @@ import Typography from "@mui/material/Typography";
 import { styled } from "@mui/system";
 import { keyframes } from "@emotion/react";
 import Image from "next/image";
-import Image1 from "../../../assets/what-we-serve-1.avif";
+import Image1 from "../../../assets/what-we-serve-1.jpg";
 
 // import Image1 from "../../../assets/high-networth.png";
 import aboutImg1 from "../../../assets/studio-background-concept-abstract-empty-light-gradient-purple-studio-room-background-product.jpg";

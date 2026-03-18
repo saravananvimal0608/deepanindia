@@ -1,63 +1,25 @@
 "use client";
 
-import React, { useEffect, useState, useRef } from "react";
-import { IoArrowForwardSharp } from "react-icons/io5";
+import React, { useEffect, useState } from "react";
 import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Link from "next/link";
 import Image from "next/image";
-import BackGroundImage1 from "../../../assets/home-image.avif";
-import BackGroundImage2 from "../../../assets/still-life-green-grapes-vineyard.jpg";
+import BackGroundImage1 from "../../../assets/home-image.jpg";
 
-const backgroundImages = [BackGroundImage1, BackGroundImage2];
-
-const SlideShowBar = ({ data = [] }) => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [isManualNavigation, setIsManualNavigation] = useState(false);
-  const [hover, setIsHover] = useState(false);
-
-  const currentSlide = data.length > 0 ? data[currentIndex] : {};
-  const {
-    title = "A Technology-Driven Quant Desk in India",
-    description = "Algorithmic Trading | Quant Research | Strategy Deployment",
-    button_name = "Get Started",
-  } = currentSlide;
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      if (!isManualNavigation) {
-        setCurrentIndex((prev) => (prev + 1) % backgroundImages.length);
-      }
-      setIsManualNavigation(false);
-    }, 5000);
-    return () => clearInterval(interval);
-  }, [isManualNavigation]);
-
-  const handleDotClick = (index) => {
-    setIsManualNavigation(true);
-    setCurrentIndex(index);
-  };
-
+const SlideShowBar = () => {
   return (
     <MainBox
-      onMouseEnter={() => setIsHover(true)}
-      onMouseLeave={() => setIsHover(false)}
     >
       <Image
         src={BackGroundImage1}
         alt="Background image"
-        style={{
-          width: "100%",
-          height: "100%",
-          position: "absolute",
-          top: 0,
-          left: 0,
-          zIndex: 1,
-          objectFit: "cover",
-        }}
-        priority={true}
+        fill
+        quality={100}
+        priority
+        style={{ objectFit: "cover" }}
       />
       <Overlay />
 
@@ -65,13 +27,10 @@ const SlideShowBar = ({ data = [] }) => {
         <Typography className="title" component="h1">
           A Technology-Driven <br /> Quant Desk in India
         </Typography>
-        <Typography className="description">{description}</Typography>
+        <Typography className="description">Algorithmic Trading | Quant Research | Strategy Deployment</Typography>
         <Link href="#contact" passHref>
-          <Button
-            variant="contained"
-            className="ctaButton"
-          >
-            {button_name}
+          <Button variant="contained" className="ctaButton">
+           Get Started
           </Button>
         </Link>
       </ContentBox>
@@ -194,35 +153,6 @@ const ContentBox = styled(Box)(({ theme }) => ({
   },
 }));
 
-const NavigationDots = styled(Box)(({ theme }) => ({
-  position: "absolute",
-  bottom: theme.spacing(2),
-  left: "50%",
-  transform: "translateX(-50%)",
-  display: "flex",
-  gap: theme.spacing(1),
-  zIndex: 5,
-  [theme.breakpoints.down("sm")]: {
-    bottom: theme.spacing(1),
-    gap: theme.spacing(0.5),
-  },
-}));
 
-const Dot = styled(Box, {
-  shouldForwardProp: (prop) => prop !== "$active", // Prevent $active from being passed to DOM
-})(({ theme, $active }) => ({
-  width: "40px",
-  height: "4px",
-  backgroundColor: $active ? "white" : "rgba(255, 255, 255, 0.5)",
-  cursor: "pointer",
-  transition: "all 0.3s ease",
-  "&:hover": {
-    backgroundColor: $active ? "#e63946" : "rgba(255, 255, 255, 0.8)",
-  },
-  [theme.breakpoints.down("sm")]: {
-    width: "20px", // Smaller dots on mobile
-    height: "3px",
-  },
-}));
 
 export default SlideShowBar;

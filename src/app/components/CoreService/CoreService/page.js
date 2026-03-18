@@ -3,10 +3,10 @@
 import Image from "next/image";
 import { Container, Grid, Box, Typography, Divider } from "@mui/material";
 import core2 from "../../../../assets/image.png";
-import core1 from '../../../../assets/quant-desk.avif'
-import core3 from '../../../../assets/core-3.avif'
-import core4 from '../../../../assets/core-4.avif'
-import core5 from '../../../../assets/Algo-trading.avif'
+import core1 from '../../../../assets/quant-desk.jpg'
+import core3 from '../../../../assets/core-3.jpg'
+import core4 from '../../../../assets/core-4.jpg'
+import core5 from '../../../../assets/Algo-trading.jpg'
 
 import styled from "styled-components";
 

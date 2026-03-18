@@ -71,7 +71,9 @@ const Blog = () => {
             alignItems: "center",
           }}
         >
-          <Typography variant="h4">BLOGS</Typography>
+         <Typography variant="h4" sx={{ fontWeight: 700 }}>
+  BLOGS
+</Typography>
           <Box
             sx={{
               display: "flex",
@@ -130,6 +132,7 @@ const Blog = () => {
                     textOverflow: "ellipsis",
                     textAlign:"center",
                       p: 1,
+                      color:"black"
                   }}
                 >
                   {d.title}

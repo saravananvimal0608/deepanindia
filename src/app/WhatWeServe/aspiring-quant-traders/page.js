@@ -7,7 +7,7 @@ import Typography from "@mui/material/Typography";
 import { styled } from "@mui/system";
 import { keyframes } from "@emotion/react";
 import Image from "next/image";
-import Image1 from "../../../assets/aspiring-quant-traders.png";
+import Image1 from "../../../assets/aspiring-quant-traders.jpg";
 import aboutImg1 from "../../../assets/studio-background-concept-abstract-empty-light-gradient-purple-studio-room-background-product.jpg";
 import RadioButtonCheckedIcon from "@mui/icons-material/RadioButtonChecked";
 import GetStartBtn from "../../components/GetStartBtn/GetStartBtn";

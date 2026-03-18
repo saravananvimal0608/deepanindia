@@ -9,12 +9,21 @@ import core4 from '../../../../assets/core-4.jpg'
 import core5 from '../../../../assets/Algo-trading.jpg'
 
 import styled from "styled-components";
+import Link from "next/link";
 
 const StyledDivider = styled(Divider)({
   backgroundColor: "#e4d4fa",
   height: "10px",
   width: "30%",
 });
+
+const hover = {
+  transition: "0.3s",
+  cursor: "pointer",
+  "&:hover": {
+    transform: "scale(1.05)",
+  },
+};
 
 const CoreService = () => {
   return (
@@ -56,7 +65,8 @@ const CoreService = () => {
         {/* Row 1 */}
         <Grid container spacing={3} justifyContent="space-around">
           <Grid item xs={12} sm={6} md={3}>
-            <Box display="flex" alignItems="center" flexDirection="column">
+            <Link href="/what-we-do/algorithmic-trading" >
+            <Box display="flex" alignItems="center" flexDirection="column" sx={hover}>
               <Image
                 src={core5}
                 alt="core-service"
@@ -80,10 +90,12 @@ const CoreService = () => {
                 Algorithmic Trading
               </Typography>
             </Box>
+            </Link>
           </Grid>
 
           <Grid item xs={12} sm={6} md={3}>
-            <Box display="flex" alignItems="center" flexDirection="column">
+            <Link href="/what-we-do/quantitative-strategy-development">
+            <Box display="flex" alignItems="center" flexDirection="column" sx={hover}>
               <Image
                 src={core2}
                 alt="core-service"
@@ -107,10 +119,12 @@ const CoreService = () => {
                 Quantitative Strategy Development
               </Typography>
             </Box>
+            </Link>
           </Grid>
 
           <Grid item xs={12} sm={6} md={3}>
-            <Box display="flex" alignItems="center" flexDirection="column">
+            <Link href="/what-we-do/quant-desk-services">
+            <Box display="flex" alignItems="center" flexDirection="column" sx={hover}>
               <Image
                 src={core1}
                 alt="core-service"
@@ -134,13 +148,15 @@ const CoreService = () => {
                 Quant Desk Services
               </Typography>
             </Box>
+            </Link>
           </Grid>
         </Grid>
 
         {/* Row 2 */}
         <Grid container spacing={3} justifyContent="space-evenly" mt={5}>
           <Grid item xs={12} sm={6} md={4}>
-            <Box display="flex" alignItems="center" flexDirection="column">
+             <Link href="/what-we-do/strategy-deployment">
+            <Box display="flex" alignItems="center" flexDirection="column" sx={hover}>
               <Image
                 src={core3}
                 alt="core-service"
@@ -164,10 +180,12 @@ const CoreService = () => {
                 Strategy Deployment & Ongoing Support
               </Typography>
             </Box>
+            </Link>
           </Grid>
 
           <Grid item xs={12} sm={6} md={4}>
-            <Box display="flex" alignItems="center" flexDirection="column">
+            <Link href="/what-we-do/financial-training">
+            <Box display="flex" alignItems="center" flexDirection="column" sx={hover}>
               <Image
                 src={core4}
                 alt="core-service"
@@ -191,6 +209,7 @@ const CoreService = () => {
                 Financial Market Training
               </Typography>
             </Box>
+            </Link>
           </Grid>
         </Grid>
       </Container>

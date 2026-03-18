@@ -8,7 +8,11 @@ import { styled } from "@mui/system";
 import Image from "next/image";
 import aboutImg1 from "../../../assets/studio-background-concept-abstract-empty-light-gradient-purple-studio-room-background-product.jpg";
 import Link from "next/link";
-
+import { useRouter } from "next/navigation";
+import { defaultCards } from "../../components/details/DefaultCard";
+import { useState } from "react";
+import { useEffect } from "react";
+import { Button } from "@mui/material";
 /* ---------------- STYLES ---------------- */
 
 const SectionWrapper = styled(Box)(({ theme }) => ({
@@ -19,9 +23,26 @@ const SectionWrapper = styled(Box)(({ theme }) => ({
   },
 }));
 
+const images = {
+  width: "300px",
+  height: "200px",
+  objectFit: "cover",
+};
+
 /* ---------------- COMPONENT ---------------- */
 
 const Blog = () => {
+  const [data, setData] = useState([]);
+
+  const router = useRouter();
+  const handleReadMore = (slug) => {
+    router.push(`/card-details/${slug || "default"}`);
+  };
+
+  useEffect(() => {
+    setData(defaultCards);
+  }, []);
+
   return (
     <>
       {/* HERO IMAGE */}
@@ -61,7 +82,7 @@ const Blog = () => {
             }}
           >
             <Link
-              href="https://t.me/yourtelegramlink"
+              href="https://t.me/deepanindia"
               style={{
                 backgroundColor: "red",
                 width: "209px",
@@ -90,192 +111,52 @@ const Blog = () => {
             alignItems="center"
             justifyContent="center"
           >
-            <Grid
-              item
-              xs={12}
-              sm={12}
-              md={4}
-              lg={3}
-              sx={{ border: "10px solid #49326B", borderRadius: "10px" }}
-            >
-              <iframe
-                width="100%"
-                height="315"
-                src="https://www.youtube.com/embed/xHU5MHuUSKI"
-                title="YouTube video player"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              ></iframe>
-            </Grid>
+            {data.map((d, index) => (
+              <Grid
+                item
+                xs={12}
+                sm={6}
+                md={3}
+                key={index}
+                sx={{ border: "10px solid #49326B", borderRadius: "10px" }}
+              >
+                <Image src={d.image} alt="asfnd" style={images}></Image>
+                <Typography
+                  sx={{
+                    width: "100%",
+                    maxWidth: "280px",
+                    whiteSpace: "nowrap",
+                    overflow: "hidden",
+                    textOverflow: "ellipsis",
+                    textAlign:"center",
+                      p: 1,
+                  }}
+                >
+                  {d.title}
+                </Typography>
+                <Button
+                  onClick={() => handleReadMore(d.slug)}
+                  sx={{
+                    color: "#49326B",
+                    border: "1px solid #49326B",
+                    textAlign: "center",
+                    m: 1,
+                    px: 2,
+                    py: 1,
+                    borderRadius: "20px",
+                    textTransform: "none",
+                    transition: "all 0.3s ease",
 
-            <Grid
-              item
-              xs={12}
-              sm={12}
-              md={4}
-              lg={3}
-              sx={{ border: "10px solid #49326B", borderRadius: "10px" }}
-            >
-              <iframe
-                width="100%"
-                height="315"
-                src="https://www.youtube.com/embed/xHU5MHuUSKI"
-                title="YouTube video player"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              ></iframe>
-            </Grid>
-
-            <Grid
-              item
-              xs={12}
-              sm={12}
-              md={4}
-              lg={3}
-              sx={{ border: "10px solid #49326B", borderRadius: "10px" }}
-            >
-              <iframe
-                width="100%"
-                height="315"
-                src="https://www.youtube.com/embed/xHU5MHuUSKI"
-                title="YouTube video player"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              ></iframe>
-            </Grid>
-
-            <Grid
-              item
-              xs={12}
-              sm={12}
-              md={4}
-              lg={3}
-              sx={{ border: "10px solid #49326B", borderRadius: "10px" }}
-            >
-              <iframe
-                width="100%"
-                height="315"
-                src="https://www.youtube.com/embed/xHU5MHuUSKI"
-                title="YouTube video player"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              ></iframe>
-            </Grid>
-
-            <Grid
-              item
-              xs={12}
-              sm={12}
-              md={4}
-              lg={3}
-              sx={{ border: "10px solid #49326B", borderRadius: "10px" }}
-            >
-              <iframe
-                width="100%"
-                height="315"
-                src="https://www.youtube.com/embed/xHU5MHuUSKI"
-                title="YouTube video player"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              ></iframe>
-            </Grid>
-
-            <Grid
-              item
-              xs={12}
-              sm={12}
-              md={4}
-              lg={3}
-              sx={{ border: "10px solid #49326B", borderRadius: "10px" }}
-            >
-              <iframe
-                width="100%"
-                height="315"
-                src="https://www.youtube.com/embed/xHU5MHuUSKI"
-                title="YouTube video player"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              ></iframe>
-            </Grid>
-
-            <Grid
-              item
-              xs={12}
-              sm={12}
-              md={4}
-              lg={3}
-              sx={{ border: "10px solid #49326B", borderRadius: "10px" }}
-            >
-              <iframe
-                width="100%"
-                height="315"
-                src="https://www.youtube.com/embed/xHU5MHuUSKI"
-                title="YouTube video player"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              ></iframe>
-            </Grid>
-            <Grid
-              item
-              xs={12}
-              sm={12}
-              md={4}
-              lg={3}
-              sx={{ border: "10px solid #49326B", borderRadius: "10px" }}
-            >
-              <iframe
-                width="100%"
-                height="315"
-                src="https://www.youtube.com/embed/xHU5MHuUSKI"
-                title="YouTube video player"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              ></iframe>
-            </Grid>
-            <Grid
-              item
-              xs={12}
-              sm={12}
-              md={4}
-              lg={3}
-              sx={{ border: "10px solid #49326B", borderRadius: "10px" }}
-            >
-              <iframe
-                width="100%"
-                height="315"
-                src="https://www.youtube.com/embed/xHU5MHuUSKI"
-                title="YouTube video player"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              ></iframe>
-            </Grid>
-            <Grid
-              item
-              xs={12}
-              sm={12}
-              md={4}
-              lg={3}
-              sx={{ border: "10px solid #49326B", borderRadius: "10px" }}
-            >
-              <iframe
-                width="100%"
-                height="315"
-                src="https://www.youtube.com/embed/xHU5MHuUSKI"
-                title="YouTube video player"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              ></iframe>
-            </Grid>
+                    "&:hover": {
+                      backgroundColor: "#49326B",
+                      color: "#fff",
+                    },
+                  }}
+                >
+                  Read More →
+                </Button>
+              </Grid>
+            ))}
           </Grid>
         </Container>
       </SectionWrapper>

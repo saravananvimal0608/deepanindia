@@ -212,7 +212,7 @@ const Partner = () => {
           }}
         >
           <Link
-            href=""
+            href="#contact"
             style={{
               backgroundColor: "red",
               width: "220px",

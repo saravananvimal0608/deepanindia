@@ -95,7 +95,7 @@ const ContactPage = () => {
                 }}
               >
                 <Link
-                  href="https://t.me/yourtelegramlink"
+                  href="https://t.me/deepanindia"
                   style={{
                     backgroundColor: "red",
                     width: "209px",
@@ -149,7 +149,7 @@ const ContactPage = () => {
                       style={{ width: "30px" }}
                     />
                   </Link>
-                  <Link href="">
+                  <Link href="https://t.me/deepanindia">
                     <Image
                       src={tele}
                       alt="tele-icon"

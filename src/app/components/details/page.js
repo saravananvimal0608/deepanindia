@@ -1,9 +1,9 @@
 "use client";
 
 import React, { useEffect } from "react";
-import Container from '@mui/material/Container';
-import Typography from '@mui/material/Typography';
-import Box from '@mui/material/Box';
+import Container from "@mui/material/Container";
+import Typography from "@mui/material/Typography";
+import Box from "@mui/material/Box";
 import Slider from "react-slick";
 import Cards from "./Cards";
 import { defaultCards } from "./DefaultCard.js";
@@ -16,9 +16,6 @@ import styled from "styled-components";
 const SlickSlider = dynamic(() => import("react-slick"), { ssr: false });
 
 export default function Cardpart({ data = [] }) {
-
-
-
   useEffect(() => {
     import("slick-carousel/slick/slick.css");
     import("slick-carousel/slick/slick-theme.css");
@@ -29,8 +26,8 @@ export default function Cardpart({ data = [] }) {
     height: "10px",
     width: "30%",
   });
-
-  const sliderData = data.length > 0 ? data : defaultCards;
+  const filterFirstFiveCards = defaultCards.slice(0, 5);
+  const sliderData = data.length > 0 ? data : filterFirstFiveCards;
 
   const settings = {
     dots: true,
@@ -104,7 +101,6 @@ export default function Cardpart({ data = [] }) {
         },
       }}
     >
-
       {/* Background Image */}
       <Image
         src={BlogImg}
@@ -112,7 +108,7 @@ export default function Cardpart({ data = [] }) {
         fill
         style={{
           objectFit: "cover",
-          zIndex: 1
+          zIndex: 1,
         }}
       />
 
@@ -121,7 +117,7 @@ export default function Cardpart({ data = [] }) {
         sx={{
           position: "absolute",
           inset: 0,
-          zIndex: 2
+          zIndex: 2,
         }}
       />
 
@@ -130,19 +126,25 @@ export default function Cardpart({ data = [] }) {
         maxWidth="lg"
         sx={{
           position: "relative",
-          zIndex: 3
+          zIndex: 3,
         }}
       >
-
-
-        <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", mb: 5 }}>
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+            mb: 5,
+          }}
+        >
           <Typography
             align="center"
             gutterBottom
             sx={{
               fontSize: { xs: "2.5rem", sm: "3rem", md: "3.5rem" },
               fontWeight: 600,
-              color:"white"
+              color: "white",
             }}
           >
             Popular Blogs
@@ -151,7 +153,6 @@ export default function Cardpart({ data = [] }) {
         </Box>
 
         <Box sx={{ padding: { xs: "20px 0", md: "40px 0" } }}>
-
           <Slider {...settings}>
             {sliderData.map((e) => (
               <Box key={e.id} sx={{ padding: "0 10px" }}>
@@ -159,11 +160,8 @@ export default function Cardpart({ data = [] }) {
               </Box>
             ))}
           </Slider>
-
         </Box>
-
       </Container>
-
     </Box>
   );
 }

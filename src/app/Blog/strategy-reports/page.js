@@ -179,7 +179,7 @@ const StrategyReports = () => {
 
                     <Box sx={{ display: 'flex', justifyContent: "center", alignItems: "center", mt: 2 }}>
                         <Link
-                            href="https://t.me/yourtelegramlink"
+                            href="https://docs.google.com/spreadsheets/d/17Gv61Sq_JK5NZJjplPQzVwoPF7lTwB5k649y0n7mQeE/edit?pli=1&gid=0#gid=0"
                             style={{
                                 backgroundColor: "red",
                                 width: "313px",

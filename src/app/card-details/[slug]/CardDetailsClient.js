@@ -48,7 +48,7 @@ const CardDetailsClient = () => {
     const fetchDetails = async () => {
       try {
         const response = await instance.get(
-          `/landing/customer/Blogs/${idToFetch}`
+          `/landing/customer/Blogs/${idToFetch}`,
         );
         if (response.status === 200 && response.data) {
           setData(response.data);
@@ -57,7 +57,7 @@ const CardDetailsClient = () => {
         }
       } catch (err) {
         console.warn(
-          `Failed to fetch blog post ID ${idToFetch} from API. Using local data.`
+          `Failed to fetch blog post ID ${idToFetch} from API. Using local data.`,
         );
         setData(cardFromLocalData);
       } finally {
@@ -203,10 +203,10 @@ const CardDetailsClient = () => {
     typeof data?.image === "object"
       ? data.image.src
       : data?.image?.includes("static") || data?.image?.includes("assets")
-      ? data.image
-      : data?.image
-      ? `${Url}${data.image}`
-      : cardFromLocalData?.image?.src;
+        ? data.image
+        : data?.image
+          ? `${Url}${data.image}`
+          : cardFromLocalData?.image?.src;
 
   return (
     <>
@@ -251,20 +251,7 @@ const CardDetailsClient = () => {
                 }}
               >
                 <Box sx={{ textAlign: "left" }}>
-                  <Typography
-                   sx={{
-                    color: "#e4d4fa",
-                    fontSize: { xs: "0.9rem", sm: "1rem" },
-                    "& a": {
-                      color: "red",
-                      textDecoration: "none",
-                    },
-                  }}
-                    component="div"
-                    dangerouslySetInnerHTML={{
-                      __html: `Written by <strong>${data?.author}</strong>`,
-                    }}
-                  />
+                 
                   <Typography
                     sx={{
                       color: "#e4d4fa",

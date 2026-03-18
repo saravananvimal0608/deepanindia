@@ -338,7 +338,7 @@ export default function Footer() {
                 <PinterestIcon className={styles.iconImage} />
               </a>
 
-              <a href="" className={styles.socialLink}>
+              <a href="https://t.me/deepanindia" className={styles.socialLink}>
                 <TelegramIcon className={styles.iconImage} />
               </a>
             </Box>

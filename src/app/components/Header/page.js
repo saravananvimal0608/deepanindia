@@ -173,7 +173,7 @@ export default function Header() {
 
                   <Nav.Link
                     style={{ marginLeft: "20px" }}
-                    onClick={() => window.location.href = "https://trade.deepanindia.com"}
+                    onClick={() => window.location.href = "https://algo.deepanindia.com/"}
                     className={styles.algoTradingLink}
                   >
                     Algo Trading
@@ -713,7 +713,7 @@ export default function Header() {
                         fontWeight: "bold",
                         textTransform: "none",
                       }}
-                      onClick={() => window.location.href = "https://trade.deepanindia.com"}
+                      onClick={() => window.location.href = "https://algo.deepanindia.com/"}
                     >
                       Algo Trading
                     </Button>
@@ -920,7 +920,7 @@ export default function Header() {
                     }}
                   >
                     <Nav.Link
-                      onClick={() => handleNavigation("/")}
+                      onClick={() => handleNavigation("https://algo.deepanindia.com/")}
                       style={{
                         height: "40px",
                         width: "120px",

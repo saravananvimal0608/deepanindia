@@ -308,7 +308,7 @@ export default function Header() {
                         textTransform: "none",
                         fontWeight: "bold",
                       }}
-                      onClick={() => handleNavigation("/#contact")}
+                      onClick={() => handleNavigation("/contact/contact")}
                     >
                       Contact
                     </Button>

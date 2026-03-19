@@ -213,7 +213,16 @@ const ContactPage = () => {
 
                   <Typography sx={{ color: "#49326b" }}>
                     <b>Email Us</b> <br />
-                    enquiry@deepanindia.com
+                    <Typography
+                      sx={{
+                        fontSize: {
+                          xs: "13px",
+                          sm: "18px",
+                        },
+                      }}
+                    >
+                      enquiry@deepanindia.com
+                    </Typography>
                   </Typography>
                 </Box>
               </Box>

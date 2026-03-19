@@ -216,6 +216,7 @@ const AlgorithmicTrading = () => {
                   color: "#49326b",
                   textAlign: "left",
                   lineHeight: 1.7,
+                  fontWeight: 700,
                   fontSize: { xs: "14px", md: "18px" },
                 }}
               >
@@ -230,6 +231,7 @@ const AlgorithmicTrading = () => {
                   color: "#49326b",
                   textAlign: "left",
                   lineHeight: 1.7,
+                  fontWeight: 700, 
                   fontSize: { xs: "14px", md: "18px" },
                 }}
               >
@@ -243,6 +245,7 @@ const AlgorithmicTrading = () => {
                   color: "#49326b",
                   textAlign: "left",
                   lineHeight: 1.7,
+                  fontWeight: 700, 
                   fontSize: { xs: "14px", md: "18px" },
                 }}
               >
@@ -256,6 +259,7 @@ const AlgorithmicTrading = () => {
                   color: "#49326b",
                   textAlign: "left",
                   lineHeight: 1.7,
+                  fontWeight: 700, 
                   fontSize: { xs: "14px", md: "18px" },
                 }}
               >

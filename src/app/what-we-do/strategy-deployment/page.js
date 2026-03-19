@@ -32,8 +32,6 @@ const SectionWrapper = styled(Box)(({ theme }) => ({
   },
 }));
 
-
-
 const SectionTitle = styled(Typography)(({ theme }) => ({
   fontSize: "2rem",
   fontWeight: 900,
@@ -49,7 +47,6 @@ const StyledDivider = styled(Divider)({
   width: "75%",
   margin: "10px 0 10px 0",
 });
-
 
 const textAlign = {
   color: "#49326b",
@@ -69,7 +66,7 @@ const StrategyDeployment = () => {
           alt="banner"
           style={{
             width: "100%",
-           height: "150px",
+            height: "150px",
             objectFit: "cover",
           }}
         />
@@ -93,7 +90,6 @@ const StrategyDeployment = () => {
         <Container maxWidth="lg">
           {/* SECTION 1 */}
           <Grid container spacing={4} alignItems="center">
-
             <Grid size={{ xs: 12 }}>
               <Typography variant="h6" sx={textAlign}>
                 Execution without monitoring is incomplete.
@@ -107,44 +103,38 @@ const StrategyDeployment = () => {
                   border: "10px solid #e4d4fa",
                   borderRadius: "30px",
                   padding: "20px",
-                  height: "100%"
+                  height: "100%",
                 }}
               >
-                <SectionTitle>We provide:
-
-                </SectionTitle>
+                <SectionTitle>We provide:</SectionTitle>
 
                 <Typography sx={{ mt: 2, color: "#49326b" }}>
                   <RadioButtonCheckedIcon
                     style={{ paddingRight: "10px", fontSize: "35px" }}
                   />
                   Strategy Onboarding Assistance
-
-                </Typography>
-
-                <Typography sx={{ color: "#49326b" }}>
-
-                  <RadioButtonCheckedIcon
-                    style={{ paddingRight: "10px", fontSize: "35px" }}
-                  />Capital Allocation Guidance
-
-
                 </Typography>
 
                 <Typography sx={{ color: "#49326b" }}>
                   <RadioButtonCheckedIcon
                     style={{ paddingRight: "10px", fontSize: "35px" }}
-                  />Periodic Performance Updates
-
+                  />
+                  Capital Allocation Guidance
                 </Typography>
 
                 <Typography sx={{ color: "#49326b" }}>
                   <RadioButtonCheckedIcon
                     style={{ paddingRight: "10px", fontSize: "35px" }}
-                  /> Continuous Monitoring & Refinement
+                  />
+                  Periodic Performance Updates
                 </Typography>
 
-
+                <Typography sx={{ color: "#49326b" }}>
+                  <RadioButtonCheckedIcon
+                    style={{ paddingRight: "10px", fontSize: "35px" }}
+                  />{" "}
+                  Continuous Monitoring & Refinement
+                </Typography>
               </Box>
             </Grid>
 
@@ -162,26 +152,35 @@ const StrategyDeployment = () => {
                   alt="algo"
                   width={400}
                   height={260}
-
                   style={{
                     width: "100%",
                     objectFit: "cover",
-                    borderRadius: "12px"
+                    borderRadius: "12px",
                   }}
                 />
               </Box>
             </Grid>
-
           </Grid>
 
           <Typography variant="h6" sx={{ mt: 4, mb: 6, ...textAlign }}>
-            Every deployment is aligned with the client’s risk appetite and capital exposure in Deepan India
+            Every deployment is aligned with the client’s risk appetite and
+            capital exposure in Deepan India
           </Typography>
 
           {/* TITLE */}
 
-          <Box sx={{ display: 'flex', flexDirection: "column", justifyContent: "center", alignItems: 'center' }}>
-            <Typography variant="h3" sx={{ color: "#49326b", fontWeight: 700,...textAlign}}>
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <Typography
+              variant="h3"
+              sx={{ color: "#49326b", fontWeight: 700, textAlign: "center" }}
+            >
               Execution Matters as Much as Strategy
             </Typography>
 
@@ -193,25 +192,36 @@ const StrategyDeployment = () => {
           <Grid container spacing={4} alignItems="center">
             {/* TEXT */}
             <Grid size={{ xs: 12, md: 6 }}>
-              <Typography sx={{ mb: 2, color: "#49326b", fontWeight: 700,...textAlign }}>
-                Dr. Karthik, a busy medical professional, wanted to participate in financial markets but had limited time to actively manage trades.
-
-
+              <Typography
+                sx={{ mb: 2, color: "#49326b", fontWeight: 700, ...textAlign }}
+              >
+                Dr. Karthik, a busy medical professional, wanted to participate
+                in financial markets but had limited time to actively manage
+                trades.
               </Typography>
 
-              <Typography sx={{ mb: 2, color: "#49326b", fontWeight: 700,...textAlign }}>
-                He understood the importance of having a structured strategy, but execution and monitoring remained a challenge.
-
+              <Typography
+                sx={{ mb: 2, color: "#49326b", fontWeight: 700, ...textAlign }}
+              >
+                He understood the importance of having a structured strategy,
+                but execution and monitoring remained a challenge.
               </Typography>
 
-              <Typography sx={{ mb: 2, color: "#49326b", fontWeight: 700,...textAlign }}>
-                That’s when he explored the concept of strategy deployment and systematic execution, where trading systems are monitored, strategies are deployed properly, and performance is reviewed periodically.
-
+              <Typography
+                sx={{ mb: 2, color: "#49326b", fontWeight: 700, ...textAlign }}
+              >
+                That’s when he explored the concept of strategy deployment and
+                systematic execution, where trading systems are monitored,
+                strategies are deployed properly, and performance is reviewed
+                periodically.
               </Typography>
 
-              <Typography sx={{ color: "#49326b", fontWeight: 700,...textAlign }}>
-                For professionals with demanding careers, structured deployment helps ensure strategies operate as intended without constant manual intervention.
-
+              <Typography
+                sx={{ color: "#49326b", fontWeight: 700, ...textAlign }}
+              >
+                For professionals with demanding careers, structured deployment
+                helps ensure strategies operate as intended without constant
+                manual intervention.
               </Typography>
             </Grid>
 
@@ -233,8 +243,7 @@ const StrategyDeployment = () => {
               </Box>
             </Grid>
           </Grid>
-        <GetStartBtn/>
-
+          <GetStartBtn />
         </Container>
       </SectionWrapper>
     </>
